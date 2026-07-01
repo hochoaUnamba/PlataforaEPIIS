@@ -1,0 +1,29 @@
+@import "primeicons/primeicons.css";
+body {
+  margin: 0;
+  font-family: var(--font-family, sans-serif);
+}
+.teacher-card, .lab-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-5px); // Levanta sutilmente la tarjeta al pasar el cursor
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+  }
+}
+.teacher-card, 
+.lab-card, 
+.feature-card,
+.hover-card {
+  
+  // Establecemos una transición suave de 0.3 segundos para que no parpadee
+  transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), 
+              box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+  
+  // Efecto cuando el usuario pasa el mouse por encima
+  &:hover {
+    transform: translateY(-6px) !important; // Eleva sutilmente la tarjeta hacia arriba
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12) !important; // Suaviza y agranda la sombra de fondo
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,67 @@
+.topbar {
+  width: 100%;
+  background-color: #1e3a8a; // Azul institucional
+  color: #f3f4f6;
+  padding: 0.5rem 1.5rem;
+  border-bottom: 1px solid #172554;
+
+  .topbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.75rem; // Tamaño de letra pequeño y elegante (text-xs)
+  }
+
+  .topbar-contact {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+  }
+
+  .topbar-email {
+    color: #ffffff;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .topbar-actions {
+    display: flex;
+    align-items: center;
+  }
+
+  .intranet-link {
+    background-color: #b91c1c; // Rojo carmín institucional
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    white-space: nowrap; // Evita absolutamente que el texto se rompa en dos líneas
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: #991b1b;
+    }
+  }
+}
+
+/* COMPORTAMIENTO PARA CELULARES Y PANTALLAS PEQUEÑAS */
+@media screen and (max-width: 768px) {
+  .topbar {
+    padding: 0.6rem 1rem; // Un poco más de espacio vertical en celulares
+
+    .topbar-container {
+      flex-direction: column; // Apila la información de contacto arriba y el botón abajo
+      gap: 0.5rem; // Distancia perfecta de respiro entre bloques
+      text-align: center;
+    }
+
+    .topbar-contact {
+      flex-direction: column; // Apila teléfono y correo uno debajo del otro si la pantalla es muy angosta
+      gap: 0.3rem;
+    }
+  }
+}

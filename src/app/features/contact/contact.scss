@@ -1,0 +1,30 @@
+.contact-page {
+  padding-bottom: 4rem;
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-top: 1.5rem;
+  }
+}
+.contact-page {
+  padding-bottom: 4rem;
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 2.5rem;
+    margin-top: 1.5rem;
+  }
+
+  // Asegura que las cajas de entrada de PrimeNG respeten las dimensiones de la columna
+  input, textarea {
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  textarea {
+    resize: vertical; // Permite agrandar hacia abajo de forma controlada
+  }
+}

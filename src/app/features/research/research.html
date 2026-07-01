@@ -1,0 +1,61 @@
+<div class="research-page max-w-7xl mx-auto p-4">
+  
+  <!-- Encabezado -->
+  <div class="text-center my-5">
+    <h1 class="text-4xl font-bold mb-2" style="color: #1e3a8a;">Investigación e Innovación</h1>
+    <p class="text-gray-600">Producción científica y desarrollo tecnológico de la Escuela Profesional de Ingeniería Informática y de Sistemas.</p>
+  </div>
+
+  <!-- SECCIÓN 1: LÍNEAS DE INVESTIGACIÓN -->
+  <div class="bg-gray-50 p-4 border-round border-1 border-200 mb-5">
+    <h3 class="text-xl font-bold mb-3 flex align-items-center" style="color: #1e3a8a;">
+      <i class="pi pi-compass mr-2 text-xl"></i>Líneas de Investigación Prioritarias
+    </h3>
+    <div class="flex flex-wrap gap-2">
+      @for (linea of lineasInvestigacion(); track linea) {
+        <span class="bg-white border-1 border-300 text-gray-700 font-medium px-3 py-2 border-round shadow-1 text-sm flex align-items-center">
+          <i class="pi pi-check-circle text-blue-600 mr-2"></i>{{ linea }}
+        </span>
+      }
+    </div>
+  </div>
+
+  <!-- SECCIÓN 2: BANCO DE PROYECTOS -->
+  <div>
+    <h3 class="text-2xl font-bold mb-4" style="color: #1e3a8a;">Proyectos de Investigación</h3>
+    
+    <div class="projects-grid">
+      @for (proy of proyectos(); track proy.titulo) {
+        <div class="bg-white p-4 border-round shadow-1 border-1 border-200 flex flex-column justify-content-between">
+          
+          <div>
+            <!-- Cabecera de Proyecto -->
+            <div class="flex justify-content-between align-items-start gap-2 mb-3">
+              <span class="text-xs font-bold text-blue-700 bg-blue-50 px-2 py-1 border-round uppercase">
+                {{ proy.linea }}
+              </span>
+              <p-tag 
+                [value]="proy.estado" 
+                [severity]="proy.estado === 'En Ejecución' ? 'info' : 'success'">
+              </p-tag>
+            </div>
+
+            <!-- Título y Descripción -->
+            <h4 class="text-lg font-bold text-gray-800 mb-2 leading-tight">{{ proy.titulo }}</h4>
+            <p class="text-gray-600 text-sm leading-relaxed mb-3">{{ proy.descripcion }}</p>
+          </div>
+
+          <!-- Datos de Cierre -->
+          <div class="pt-3 border-top-1 border-100 flex justify-content-between align-items-center">
+            <span class="text-xs text-gray-500">
+              <i class="pi pi-user mr-1"></i><strong>Inv:</strong> {{ proy.coordinador }}
+            </span>
+            <p-button label="Ver Repositorio" icon="pi pi-external-link" [text]="true" size="small"></p-button>
+          </div>
+
+        </div>
+      }
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,63 @@
+<div class="home-container">
+  
+  <!-- SECCIÓN 1: HERO BANNER (CAROUSEL) -->
+  <section class="hero-section">
+    <p-carousel 
+      [value]="banners" 
+      [numVisible]="1" 
+      [numScroll]="1" 
+      [circular]="true" 
+      [autoplayInterval]="5000">
+      <ng-template let-banner pTemplate="item">
+        <div class="banner-item" [style.background-image]="'linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url(' + banner.image + ')'">
+          <div class="banner-content">
+            <h1 class="text-4xl md:text-6xl font-bold text-white mb-3">{{ banner.title }}</h1>
+            <p class="text-lg md:text-xl text-gray-200 mb-4 max-w-2xl">{{ banner.description }}</p>
+            <p-button label="Saber Más" icon="pi pi-arrow-right" size="large"></p-button>
+          </div>
+        </div>
+      </ng-template>
+    </p-carousel>
+  </section>
+
+  <!-- SECCIÓN 2: ACCESOS RÁPIDOS -->
+  <section class="features-section p-5 max-w-7xl mx-auto">
+    <div class="text-center my-5">
+      <h2 class="text-3xl font-bold text-gray-800">Accesos Rápidos</h2>
+      <p class="text-gray-600 mt-1">Encuentra la información clave de nuestra escuela profesional</p>
+    </div>
+
+    <div class="grid-container">
+      @for (feat of features; track feat.title) {
+        <div class="bg-white p-4 border-round shadow-1 border-1 border-200 flex flex-column justify-content-between text-left hover-card">
+          
+          <div>
+            <!-- Icono Superior con Fondo Azul Tenue -->
+            <div class="mb-3 flex align-items-center justify-content-center border-round bg-blue-50" style="width: 50px; height: 50px;">
+              <i [class]="feat.icon + ' text-2xl text-blue-700'"></i>
+            </div>
+            
+            <!-- Título y Descripción -->
+            <h3 class="text-xl font-bold text-gray-800 mb-2">{{ feat.title }}</h3>
+            <p class="text-gray-600 text-sm leading-relaxed mb-4" style="min-height: 4rem;">{{ feat.description }}</p>
+          </div>
+
+          <!-- BOTÓN CENTRADO HORIZONTALMENTE -->
+          <div class="pt-3 border-top-1 border-100 flex justify-content-center">
+            <p-button 
+              label="Ver" 
+              icon="pi pi-chevron-right" 
+              iconPos="right"
+              [outlined]="true" 
+              severity="secondary" 
+              size="small" 
+              [routerLink]="feat.route"
+              styleClass="w-full md:w-8rem cursor-pointer">
+            </p-button>
+          </div>
+
+        </div>
+      }
+    </div>
+  </section>
+</div>
