@@ -1,5 +1,18 @@
+@use '../../styles/variables' as *;
+
 .content {
-  min-height: calc(100vh - 120px);
-  padding: 20px;
-  background: #f8fafc;
+  min-height: calc(100vh - 80px);
+  background: $bg-light;
+  animation: pageEnter 0.4s ease;
+}
+
+@keyframes pageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

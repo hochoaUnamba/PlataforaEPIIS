@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="450" viewBox="0 0 1200 450">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e3a8a;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#172554;stop-opacity:1"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="450" fill="url(#g)"/>
+  <text x="600" y="200" text-anchor="middle" font-size="48" font-weight="bold" fill="white" font-family="sans-serif">Bienvenidos a EPIIS</text>
+  <text x="600" y="260" text-anchor="middle" font-size="20" fill="#93c5fd" font-family="sans-serif">Escuela Profesional de Ingeniería Informática y Sistemas</text>
+  <text x="600" y="290" text-anchor="middle" font-size="14" fill="#bfdbfe" font-family="sans-serif">UNAMBA</text>
+</svg>

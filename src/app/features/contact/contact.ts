@@ -4,16 +4,15 @@ import { FormsModule } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
 import { TextareaModule } from 'primeng/textarea';
 import { ButtonModule } from 'primeng/button';
-
-// 1. IMPORTA LOS COMPONENTES DE NOTIFICACIÓN DE PRIMENG
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
+import { ScrollAnimationDirective } from '../../shared/directives/scroll-animation.directive';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
   // 2. REGISTRA TOASTMODULE AQUÍ ADENTRO
-  imports: [CommonModule, FormsModule, InputTextModule, TextareaModule, ButtonModule, ToastModule],
+  imports: [CommonModule, FormsModule, InputTextModule, TextareaModule, ButtonModule, ToastModule, ScrollAnimationDirective],
   // 3. PROVEE EL SERVICIO EXCLUSIVAMENTE PARA ESTE COMPONENTE Standalone
   providers: [MessageService], 
   templateUrl: './contact.html',

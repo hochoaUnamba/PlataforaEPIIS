@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="200" viewBox="0 0 400 200">
+  <rect width="400" height="200" fill="#dbeafe"/>
+  <rect x="80" y="40" width="60" height="45" rx="4" fill="#3b82f6" opacity="0.3"/>
+  <rect x="160" y="40" width="60" height="45" rx="4" fill="#3b82f6" opacity="0.3"/>
+  <rect x="240" y="40" width="60" height="45" rx="4" fill="#3b82f6" opacity="0.3"/>
+  <rect x="120" y="100" width="140" height="8" rx="2" fill="#3b82f6" opacity="0.2"/>
+  <text x="200" y="150" text-anchor="middle" font-size="16" fill="#2563eb" font-family="sans-serif">Laboratorio EPIIS</text>
+</svg>

@@ -1,63 +1,74 @@
 <div class="home-container">
-  
-  <!-- SECCIÓN 1: HERO BANNER (CAROUSEL) -->
+
   <section class="hero-section">
-    <p-carousel 
-      [value]="banners" 
-      [numVisible]="1" 
-      [numScroll]="1" 
-      [circular]="true" 
-      [autoplayInterval]="5000">
-      <ng-template let-banner pTemplate="item">
-        <div class="banner-item" [style.background-image]="'linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url(' + banner.image + ')'">
-          <div class="banner-content">
-            <h1 class="text-4xl md:text-6xl font-bold text-white mb-3">{{ banner.title }}</h1>
-            <p class="text-lg md:text-xl text-gray-200 mb-4 max-w-2xl">{{ banner.description }}</p>
-            <p-button label="Saber Más" icon="pi pi-arrow-right" size="large"></p-button>
-          </div>
-        </div>
-      </ng-template>
-    </p-carousel>
+    <div class="hero-overlay"></div>
+    <div class="hero-bg-pattern"></div>
+    <div class="hero-content">
+      <span class="hero-badge">Escuela Profesional</span>
+      <h1 class="hero-title">
+        Ingeniería Informática<br>
+        <span class="hero-highlight">y Sistemas</span>
+      </h1>
+      <p class="hero-subtitle">
+        Formamos líderes en tecnología e innovación para transformar el futuro digital<br class="hidden md:block">
+        de la región Apurímac y del Perú.
+      </p>
+      <div class="hero-actions">
+        <p-button label="Conócenos" icon="pi pi-arrow-right" iconPos="right" size="large" routerLink="/about" styleClass="hero-btn-primary"></p-button>
+        <p-button label="Admisión" icon="pi pi-id-card" iconPos="right" size="large" routerLink="/admissions" severity="secondary" styleClass="hero-btn-secondary"></p-button>
+      </div>
+    </div>
+    <div class="hero-scroll-indicator">
+      <span class="scroll-dot"></span>
+    </div>
   </section>
 
-  <!-- SECCIÓN 2: ACCESOS RÁPIDOS -->
-  <section class="features-section p-5 max-w-7xl mx-auto">
-    <div class="text-center my-5">
-      <h2 class="text-3xl font-bold text-gray-800">Accesos Rápidos</h2>
-      <p class="text-gray-600 mt-1">Encuentra la información clave de nuestra escuela profesional</p>
-    </div>
-
-    <div class="grid-container">
-      @for (feat of features; track feat.title) {
-        <div class="bg-white p-4 border-round shadow-1 border-1 border-200 flex flex-column justify-content-between text-left hover-card">
-          
-          <div>
-            <!-- Icono Superior con Fondo Azul Tenue -->
-            <div class="mb-3 flex align-items-center justify-content-center border-round bg-blue-50" style="width: 50px; height: 50px;">
-              <i [class]="feat.icon + ' text-2xl text-blue-700'"></i>
-            </div>
-            
-            <!-- Título y Descripción -->
-            <h3 class="text-xl font-bold text-gray-800 mb-2">{{ feat.title }}</h3>
-            <p class="text-gray-600 text-sm leading-relaxed mb-4" style="min-height: 4rem;">{{ feat.description }}</p>
-          </div>
-
-          <!-- BOTÓN CENTRADO HORIZONTALMENTE -->
-          <div class="pt-3 border-top-1 border-100 flex justify-content-center">
-            <p-button 
-              label="Ver" 
-              icon="pi pi-chevron-right" 
-              iconPos="right"
-              [outlined]="true" 
-              severity="secondary" 
-              size="small" 
-              [routerLink]="feat.route"
-              styleClass="w-full md:w-8rem cursor-pointer">
-            </p-button>
-          </div>
-
+  <section class="stats-section" appScrollAnimation>
+    <div class="stats-grid max-w-7xl mx-auto px-4">
+      @for (stat of stats; track stat.label) {
+        <div class="stat-item">
+          <i [class]="stat.icon + ' stat-icon'"></i>
+          <span class="stat-value">{{ stat.value }}</span>
+          <span class="stat-label">{{ stat.label }}</span>
         </div>
       }
     </div>
   </section>
+
+  <section class="features-section py-6 max-w-7xl mx-auto px-4" appScrollAnimation>
+    <div class="text-center mb-5">
+      <span class="section-badge">Accesos Rápidos</span>
+      <h2 class="section-title">Explora EPIIS</h2>
+      <p class="section-subtitle">Encuentra la información clave de nuestra escuela profesional</p>
+    </div>
+
+    <div class="grid-container">
+      @for (feat of features; track feat.title) {
+        <div class="feature-card bg-white border-round shadow-1 flex flex-column justify-content-between text-left hover-card">
+
+          <div>
+            <div class="feature-icon-wrap">
+              <i [class]="feat.icon + ' feature-icon'"></i>
+            </div>
+            <h3 class="feature-card-title">{{ feat.title }}</h3>
+            <p class="feature-card-desc">{{ feat.description }}</p>
+          </div>
+
+          <div class="pt-3 border-top-1 border-100 flex justify-content-center">
+            <p-button
+              label="Explorar"
+              icon="pi pi-arrow-right"
+              iconPos="right"
+              [outlined]="true"
+              severity="secondary"
+              size="small"
+              [routerLink]="feat.route"
+              styleClass="w-full md:w-8rem cursor-pointer">
+            </p-button>
+          </div>
+        </div>
+      }
+    </div>
+  </section>
+
 </div>

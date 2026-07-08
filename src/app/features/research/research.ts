@@ -2,6 +2,7 @@ import { Component, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ButtonModule } from 'primeng/button';
 import { TagModule } from 'primeng/tag';
+import { ScrollAnimationDirective } from '../../shared/directives/scroll-animation.directive';
 
 interface ProyectoInvestigacion {
   titulo: string;
@@ -14,7 +15,7 @@ interface ProyectoInvestigacion {
 @Component({
   selector: 'app-research',
   standalone: true,
-  imports: [CommonModule, ButtonModule, TagModule],
+  imports: [CommonModule, ButtonModule, TagModule, ScrollAnimationDirective],
   templateUrl: './research.html',
   styleUrl: './research.scss'
 })

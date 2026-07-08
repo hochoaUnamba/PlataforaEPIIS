@@ -1,13 +1,13 @@
-<nav class="custom-navbar">
+<nav class="custom-navbar" [class.scrolled]="isScrolled()" aria-label="Navegación principal">
   <div class="navbar-container">
     <div class="navbar-brand">
-      <a routerLink="/home" class="font-bold text-lg no-underline cursor-pointer" style="color: #1e3a8a;">
-        EPII – UNAMBA
+      <a routerLink="/home" class="font-bold text-lg no-underline cursor-pointer" aria-label="Ir al inicio">
+        <span class="brand-accent">EPIIS</span>
+        <span class="brand-sub">UNAMBA</span>
       </a>
     </div>
     <div class="navbar-menu">
       <p-menubar [model]="items" menuIcon="pi pi-bars" styleClass="epiis-menubar"></p-menubar>
     </div>
-
   </div>
 </nav>

@@ -3,16 +3,6 @@
 
   .contact-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 2rem;
-    margin-top: 1.5rem;
-  }
-}
-.contact-page {
-  padding-bottom: 4rem;
-
-  .contact-grid {
-    display: grid;
     grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
     gap: 2.5rem;
     margin-top: 1.5rem;

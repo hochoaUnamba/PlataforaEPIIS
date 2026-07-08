@@ -1,34 +1,30 @@
-<div class="news-page max-w-7xl mx-auto p-4">
-  
-  <!-- Encabezado -->
-  <div class="text-center my-5">
-    <h1 class="text-4xl font-bold mb-2" style="color: #1e3a8a;">Noticias y Actualidad</h1>
-    <p class="text-gray-600">Mantente informado sobre los acontecimientos académicos, logros y eventos de nuestra Escuela Profesional.</p>
+<div class="news-page max-w-7xl mx-auto px-4 md:px-6">
+
+  <div class="text-center my-5" appScrollAnimation>
+    <span class="section-badge">Actualidad</span>
+    <h1 class="section-title">Noticias y Actualidad</h1>
+    <p class="section-subtitle">Mantente informado sobre los acontecimientos académicos, logros y eventos de nuestra Escuela Profesional.</p>
   </div>
 
-  <!-- Grilla de Noticias -->
-  <div class="news-grid">
+  <div class="news-grid" appScrollAnimation>
     @for (noticia of noticiasList(); track noticia.titulo) {
-      <div class="bg-white border-round shadow-1 border-1 border-200 overflow-hidden flex flex-column justify-content-between hover-card">
-        
-        <!-- Imagen de la noticia -->
+      <div class="bg-white border-round border-1 border-200 overflow-hidden flex flex-column justify-content-between hover-card" style="border-radius: 14px;">
+
         <div class="relative">
-          <img [src]="noticia.imagen" [alt]="noticia.titulo" class="w-full h-12rem object-cover" />
+          <img [src]="noticia.imagen" [alt]="'Imagen: ' + noticia.titulo" loading="lazy" class="w-full" style="height: 200px; object-fit: cover;" />
           <span class="absolute top-0 right-0 m-3 text-xs font-bold text-white bg-blue-700 px-2 py-1 border-round uppercase">
             {{ noticia.categoria }}
           </span>
         </div>
 
-        <!-- Contenido textual -->
         <div class="p-4 flex-grow-1">
           <span class="text-xs text-gray-500 font-medium block mb-2">
             <i class="pi pi-calendar mr-1"></i>{{ noticia.fecha }}
           </span>
-          <h3 class="text-xl font-bold text-gray-800 mb-2 leading-tight min-h-3rem">{{ noticia.titulo }}</h3>
+          <h3 class="text-lg font-bold text-gray-800 mb-2 leading-tight" style="min-height: 3rem;">{{ noticia.titulo }}</h3>
           <p class="text-gray-600 text-sm leading-relaxed mb-4">{{ noticia.resumen }}</p>
         </div>
 
-        <!-- Botón de acción -->
         <div class="px-4 pb-4 pt-2 border-top-1 border-100 flex justify-content-end">
           <p-button label="Leer más" icon="pi pi-arrow-right" [text]="true" size="small"></p-button>
         </div>

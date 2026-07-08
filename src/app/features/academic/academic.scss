@@ -1,0 +1,141 @@
+@use '../../core/styles/variables' as *;
+
+.academic-page {
+  padding-bottom: 4rem;
+
+  .malla-selector {
+    margin-bottom: 1.5rem;
+  }
+
+  .malla-toggle {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .malla-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.85rem 1.5rem;
+    border: 2px solid $border;
+    border-radius: 14px;
+    background: $white;
+    cursor: pointer;
+    transition: all $transition;
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: $text-muted;
+    min-width: 240px;
+    justify-content: center;
+
+    i {
+      font-size: 1.1rem;
+      color: $text-light;
+      transition: color $transition;
+    }
+
+    &:hover {
+      border-color: $primary-light;
+      background: $primary-50;
+      color: $primary;
+    }
+
+    &.active {
+      border-color: $primary;
+      background: $primary;
+      color: $white;
+      box-shadow: 0 4px 15px rgba($primary, 0.25);
+
+      i {
+        color: $white;
+      }
+
+      .malla-badge {
+        background: rgba(255, 255, 255, 0.2);
+        color: $white;
+      }
+    }
+  }
+
+  .malla-badge {
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.15rem 0.5rem;
+    border-radius: 20px;
+    background: $bg-gray;
+    color: $text-light;
+  }
+
+  .malla-info {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    background: $primary-50;
+    border: 1px solid rgba($primary, 0.15);
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    margin-bottom: 2rem;
+
+    i {
+      font-size: 1.2rem;
+      color: $primary;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+
+    p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: $text-dark;
+      line-height: 1.6;
+    }
+
+    &.anterior {
+      background: #fefce8;
+      border-color: rgba(234, 179, 8, 0.2);
+
+      i { color: #ca8a04; }
+    }
+  }
+
+  .academic-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .academic-card {
+    :host ::ng-deep .p-card {
+      border-radius: 14px;
+      border: 1px solid $border;
+
+      .p-card-title {
+        font-size: 1.1rem;
+        color: $primary;
+        font-weight: 700;
+      }
+
+      .p-card-subtitle {
+        font-size: 0.8rem;
+        color: $text-light;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+      }
+
+      .p-card-body {
+        padding: 1.25rem;
+      }
+    }
+
+    li {
+      font-size: 0.88rem;
+      color: $text-dark;
+    }
+  }
+}

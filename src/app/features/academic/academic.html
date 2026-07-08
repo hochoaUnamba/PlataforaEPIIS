@@ -1,0 +1,64 @@
+<div class="academic-page max-w-7xl mx-auto px-4 md:px-6">
+  <div class="text-center my-5" appScrollAnimation>
+    <span class="section-badge">Académico</span>
+    <h1 class="section-title">Mallas Curriculares</h1>
+    <p class="section-subtitle">Selecciona el plan de estudios que deseas consultar.</p>
+  </div>
+
+  <div class="malla-selector" appScrollAnimation>
+    <div class="malla-toggle">
+      <button
+        class="malla-btn"
+        [class.active]="selectedYear() === '2022'"
+        (click)="switchMalla('2022')">
+        <i class="pi pi-file"></i>
+        <span>Malla Curricular 2022</span>
+        <span class="malla-badge">Vigente</span>
+      </button>
+      <button
+        class="malla-btn"
+        [class.active]="selectedYear() === '2019'"
+        (click)="switchMalla('2019')">
+        <i class="pi pi-history"></i>
+        <span>Malla Curricular 2019</span>
+        <span class="malla-badge">Anterior</span>
+      </button>
+    </div>
+  </div>
+
+  @if (selectedYear() === '2022') {
+    <div class="malla-info" appScrollAnimation>
+      <i class="pi pi-info-circle"></i>
+      <p>Malla curricular actualizada al 2022 — vigente para ingresantes desde el semestre 2022-II. Aprobada con Resolución N° 023-2022-CU-UNAMBA.</p>
+    </div>
+  } @else {
+    <div class="malla-info anterior" appScrollAnimation>
+      <i class="pi pi-info-circle"></i>
+      <p>Malla curricular correspondiente al plan 2019. Aún aplica para estudiantes que ingresaron antes del 2022-II bajo régimen de adecuación curricular.</p>
+    </div>
+  }
+
+  <div class="academic-grid" appScrollAnimation>
+    @for (plan of currentPlanes(); track plan.titulo) {
+      <p-card [header]="plan.titulo" [subheader]="'Ciclo ' + plan.ciclo" class="academic-card">
+        <ul class="list-none p-0 m-0">
+          @for (curso of plan.cursos; track curso) {
+            <li class="flex align-items-center gap-2 py-2 border-bottom-1 border-100">
+              <i class="pi pi-check-circle text-blue-600"></i>
+              <span>{{ curso }}</span>
+            </li>
+          }
+        </ul>
+      </p-card>
+    }
+  </div>
+
+  <div class="text-center my-5">
+    <p-button
+      [label]="'Descargar Malla ' + selectedYear()"
+      icon="pi pi-download"
+      severity="secondary"
+      [outlined]="true">
+    </p-button>
+  </div>
+</div>
