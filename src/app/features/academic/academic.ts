@@ -2,6 +2,7 @@ import { Component, signal, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { ScrollAnimationDirective } from '../../shared/directives/scroll-animation.directive';
 
 interface CursoPlan {
@@ -13,7 +14,7 @@ interface CursoPlan {
 @Component({
   selector: 'app-academic',
   standalone: true,
-  imports: [CommonModule, CardModule, ButtonModule, ScrollAnimationDirective],
+  imports: [CommonModule, CardModule, ButtonModule, PdfViewerModule, ScrollAnimationDirective],
   templateUrl: './academic.html',
   styleUrl: './academic.scss'
 })

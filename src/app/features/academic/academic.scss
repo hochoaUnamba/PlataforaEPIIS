@@ -103,6 +103,23 @@
     }
   }
 
+  .pdf-viewer-wrapper {
+    background: $white;
+    border: 1px solid $border;
+    border-radius: 16px;
+    padding: 1rem;
+    box-shadow: $shadow-md;
+    margin-bottom: 2rem;
+    overflow: hidden;
+
+    ::ng-deep {
+      .ng2-pdf-viewer-container {
+        overflow: auto;
+        border-radius: 8px;
+      }
+    }
+  }
+
   .academic-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
