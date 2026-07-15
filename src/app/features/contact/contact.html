@@ -1,8 +1,8 @@
-<p-toast></p-toast>
+<div class="contact-page max-w-7xl mx-auto px-6 lg:px-8 pt-6 md:pt-8">
 
-<div class="contact-page max-w-7xl mx-auto px-4 md:px-6">
+  <p-toast></p-toast>
 
-  <div class="text-center my-5" appScrollAnimation>
+  <div class="section-header" appScrollAnimation>
     <span class="section-badge">Contacto</span>
     <h1 class="section-title">Contacto</h1>
     <p class="section-subtitle">¿Tienes dudas o consultas? Escríbenos o visítanos en nuestro pabellón.</p>
@@ -10,84 +10,76 @@
 
   <div class="contact-grid" appScrollAnimation>
 
-    <div class="bg-white p-4 border-round border-1 border-200" style="border-radius: 16px;">
-      <h3 class="text-xl font-bold mb-4 flex align-items-center gap-2" style="color: #1e3a8a;">
-        <i class="pi pi-info-circle"></i> Información Institucional
-      </h3>
-
-      <div class="info-list text-gray-700">
-        <p class="mb-3 flex align-items-start">
-          <i class="pi pi-map-marker text-blue-600 text-xl mr-3 mt-1"></i>
-          <span><strong>Dirección:</strong> Av. Garcilaso de la Vega N° 123, Ciudad Universitaria, Tamburco, Abancay.</span>
-        </p>
-        <p class="mb-3 flex align-items-center">
-          <i class="pi pi-envelope text-blue-600 text-xl mr-3"></i>
-          <span><strong>Correo Electrónico:</strong> epiis&#64;unamba.edu.pe</span>
-        </p>
-        <p class="mb-4 flex align-items-center">
-          <i class="pi pi-clock text-blue-600 text-xl mr-3"></i>
-          <span><strong>Horario de Atención:</strong> Lunes a Viernes de 8:00 am a 3:30 pm</span>
-        </p>
+    <div class="card bg-white p-5 border-round shadow-1 border-1 border-200">
+      <div class="flex align-items-center gap-2 mb-4">
+        <div class="contact-section-icon">
+          <i class="pi pi-info-circle text-blue-600"></i>
+        </div>
+        <h3 class="text-lg font-bold m-0 text-gray-800">Información Institucional</h3>
       </div>
 
-      <div class="bg-gray-100 border-round p-5 text-center text-gray-500 border-1 border-300" style="border-radius: 12px;">
-        <i class="pi pi-map text-3xl mb-2 block text-blue-600"></i>
-        <span>Pabellón de Ingeniería Informática y Sistemas - UNAMBA</span>
+      <div class="flex flex-column gap-3">
+        <div class="contact-info-item">
+          <div class="contact-icon-box">
+            <i class="pi pi-map-marker text-blue-600"></i>
+          </div>
+          <div>
+            <span class="contact-info-label">Dirección</span>
+            <span class="contact-info-value">Av. Garcilaso de la Vega N° 123, Ciudad Universitaria, Tamburco, Abancay.</span>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-icon-box">
+            <i class="pi pi-envelope text-blue-600"></i>
+          </div>
+          <div>
+            <span class="contact-info-label">Correo Electrónico</span>
+            <span class="contact-info-value">epiis&#64;unamba.edu.pe</span>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-icon-box">
+            <i class="pi pi-clock text-blue-600"></i>
+          </div>
+          <div>
+            <span class="contact-info-label">Horario de Atención</span>
+            <span class="contact-info-value">Lunes a Viernes de 8:00 am a 3:30 pm</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="map-placeholder">
+        <i class="pi pi-map text-2xl mb-2 block text-blue-500"></i>
+        <span class="text-gray-500 text-sm">Pabellón de Ingeniería Informática y Sistemas - UNAMBA</span>
       </div>
     </div>
 
-    <div class="bg-white p-4 border-round border-1 border-200" style="border-radius: 16px;">
-      <h3 class="text-xl font-bold mb-4 flex align-items-center gap-2" style="color: #1e3a8a;">
-        <i class="pi pi-send"></i> Envíanos un Mensaje
-      </h3>
+    <div class="card bg-white p-5 border-round shadow-1 border-1 border-200">
+      <div class="flex align-items-center gap-2 mb-4">
+        <div class="contact-section-icon">
+          <i class="pi pi-send text-blue-600"></i>
+        </div>
+        <h3 class="text-lg font-bold m-0 text-gray-800">Envíanos un Mensaje</h3>
+      </div>
 
       <form (ngSubmit)="enviarMensaje()" class="flex flex-column gap-4">
 
         <div class="flex flex-column gap-2">
           <label for="nombre" class="font-semibold text-gray-700 text-sm">Nombre Completo</label>
-          <input
-            pInputText
-            id="nombre"
-            placeholder="Ej. Juan Pérez"
-            class="w-full"
-            [ngModel]="nombre()"
-            (ngModelChange)="nombre.set($event)"
-            name="nombre"
-            required />
+          <input pInputText id="nombre" placeholder="Ej. Juan Pérez" class="w-full" [ngModel]="nombre()" (ngModelChange)="nombre.set($event)" name="nombre" required />
         </div>
 
         <div class="flex flex-column gap-2">
           <label for="correo" class="font-semibold text-gray-700 text-sm">Correo Electrónico</label>
-          <input
-            pInputText
-            id="correo"
-            type="email"
-            placeholder="Ej. juan.perez&#64;gmail.com"
-            class="w-full"
-            [ngModel]="correo()"
-            (ngModelChange)="correo.set($event)"
-            name="correo"
-            required />
+          <input pInputText id="correo" type="email" placeholder="Ej. juan.perez&#64;gmail.com" class="w-full" [ngModel]="correo()" (ngModelChange)="correo.set($event)" name="correo" required />
         </div>
 
         <div class="flex flex-column gap-2">
           <label for="mensaje" class="font-semibold text-gray-700 text-sm">Mensaje o Consulta</label>
-          <textarea
-            pTextarea
-            id="mensaje"
-            rows="4"
-            placeholder="Escribe tu consulta aquí..."
-            class="w-full"
-            [autoResize]="false"
-            [ngModel]="mensaje()"
-            (ngModelChange)="mensaje.set($event)"
-            name="mensaje"
-            required></textarea>
+          <textarea pTextarea id="mensaje" rows="4" placeholder="Escribe tu consulta aquí..." class="w-full" [autoResize]="false" [ngModel]="mensaje()" (ngModelChange)="mensaje.set($event)" name="mensaje" required></textarea>
         </div>
 
-        <div class="flex justify-content-end mt-2">
-          <p-button type="submit" label="Enviar Mensaje" icon="pi pi-send" styleClass="w-full md:w-auto" ariaLabel="Enviar formulario de contacto"></p-button>
-        </div>
+        <p-button type="submit" [loading]="submitting()" [disabled]="submitting()" label="Enviar Mensaje" icon="pi pi-send" styleClass="w-full"></p-button>
 
       </form>
     </div>

@@ -1,4 +1,4 @@
-import { Component, signal, inject } from '@angular/core';
+import { Component, signal, inject, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
@@ -6,6 +6,7 @@ import { TagModule } from 'primeng/tag';
 import { SharedModule } from 'primeng/api';
 import { LaboratoriesService } from '../../core/services/laboratories.service';
 import { ScrollAnimationDirective } from '../../shared/directives/scroll-animation.directive';
+import { SeoService } from '../../core/services/seo.service';
 
 @Component({
   selector: 'app-laboratories',
@@ -14,9 +15,15 @@ import { ScrollAnimationDirective } from '../../shared/directives/scroll-animati
   templateUrl: './laboratories.html',
   styleUrl: './laboratories.scss'
 })
-export class LaboratoriesComponent {
+export class LaboratoriesComponent implements AfterViewInit {
+  private seo = inject(SeoService);
   private laboratoriesService = inject(LaboratoriesService);
   laboratorios = signal(this.laboratoriesService.getLaboratorios()());
+  loading = this.laboratoriesService.isLoading();
+
+  ngAfterViewInit() {
+    this.seo.setPageMeta({ description: 'Laboratorios equipados de la Escuela Profesional de Ingeniería Informática y Sistemas de la UNAMBA en Abancay.' });
+  }
 
   getSeverity(estado: string): 'success' | 'secondary' | 'info' | 'warn' | 'danger' | undefined {
     switch (estado) {

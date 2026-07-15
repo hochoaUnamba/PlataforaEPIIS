@@ -1,24 +1,19 @@
-<div class="academic-page max-w-7xl mx-auto px-4 md:px-6">
-  <div class="text-center my-5" appScrollAnimation>
+<div class="academic-page max-w-7xl mx-auto px-6 lg:px-8 pt-6 md:pt-8">
+
+  <div class="section-header" appScrollAnimation>
     <span class="section-badge">Académico</span>
     <h1 class="section-title">Mallas Curriculares</h1>
     <p class="section-subtitle">Selecciona el plan de estudios que deseas consultar.</p>
   </div>
 
-  <div class="malla-selector" appScrollAnimation>
+  <div class="card bg-white p-5 border-round shadow-1 border-1 border-200 mb-4" appScrollAnimation>
     <div class="malla-toggle">
-      <button
-        class="malla-btn"
-        [class.active]="selectedYear() === '2022'"
-        (click)="switchMalla('2022')">
+      <button class="malla-btn" [class.active]="selectedYear() === '2022'" (click)="switchMalla('2022')">
         <i class="pi pi-file"></i>
         <span>Malla Curricular 2022</span>
         <span class="malla-badge">Vigente</span>
       </button>
-      <button
-        class="malla-btn"
-        [class.active]="selectedYear() === '2019'"
-        (click)="switchMalla('2019')">
+      <button class="malla-btn" [class.active]="selectedYear() === '2019'" (click)="switchMalla('2019')">
         <i class="pi pi-history"></i>
         <span>Malla Curricular 2019</span>
         <span class="malla-badge">Anterior</span>
@@ -39,7 +34,7 @@
         [show-all]="true"
         [fit-to-page]="true"
         [zoom]="0.85"
-        style="width: 100%; min-height: 80vh;">
+        class="pdf-viewer">
       </pdf-viewer>
     </div>
   } @else {
@@ -54,8 +49,8 @@
           <ul class="list-none p-0 m-0">
             @for (curso of plan.cursos; track curso) {
               <li class="flex align-items-center gap-2 py-2 border-bottom-1 border-100">
-                <i class="pi pi-check-circle text-blue-600"></i>
-                <span>{{ curso }}</span>
+                <i class="pi pi-check-circle text-blue-600 text-sm"></i>
+                <span class="text-sm">{{ curso }}</span>
               </li>
             }
           </ul>
@@ -64,7 +59,7 @@
     </div>
   }
 
-  <div class="text-center my-5">
+  <div class="text-center my-4">
     @if (selectedYear() === '2022') {
       <a pButton [href]="'assets/docs/malla-2022.pdf'" download="Malla-Curricular-EPIIS-2022.pdf" icon="pi pi-download" severity="secondary" [outlined]="true" label="Descargar Malla 2022"></a>
     } @else {

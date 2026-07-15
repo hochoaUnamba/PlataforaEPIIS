@@ -1,3 +1,5 @@
+@use '../../core/styles/variables' as *;
+
 .contact-page {
   padding-bottom: 4rem;
 
@@ -5,16 +7,66 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
     gap: 2.5rem;
+  }
+
+  .contact-section-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, $primary-50, $blue-100);
+    border-radius: 10px;
+  }
+
+  .contact-info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .contact-icon-box {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $primary-50;
+    border-radius: 8px;
+    flex-shrink: 0;
+  }
+
+  .contact-info-label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: $text-dark;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.15rem;
+  }
+
+  .contact-info-value {
+    font-size: 0.85rem;
+    color: $text-muted;
+    line-height: 1.4;
+  }
+
+  .map-placeholder {
+    background: $bg-gray;
+    border: 1px solid $border;
+    border-radius: $radius-md;
+    padding: 1.5rem;
+    text-align: center;
     margin-top: 1.5rem;
   }
 
-  // Asegura que las cajas de entrada de PrimeNG respeten las dimensiones de la columna
-  input, textarea {
-    width: 100% !important;
-    box-sizing: border-box !important;
+  ::ng-deep input, ::ng-deep textarea {
+    width: 100%;
+    box-sizing: border-box;
   }
 
   textarea {
-    resize: vertical; // Permite agrandar hacia abajo de forma controlada
+    resize: vertical;
   }
 }

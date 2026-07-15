@@ -1,6 +1,6 @@
-<div class="news-page max-w-7xl mx-auto px-4 md:px-6">
+<div class="news-page max-w-7xl mx-auto px-6 lg:px-8 pt-6 md:pt-8">
 
-  <div class="text-center my-5" appScrollAnimation>
+  <div class="section-header" appScrollAnimation>
     <span class="section-badge">Actualidad</span>
     <h1 class="section-title">Noticias y Actualidad</h1>
     <p class="section-subtitle">Mantente informado sobre los acontecimientos académicos, logros y eventos de nuestra Escuela Profesional.</p>
@@ -8,29 +8,23 @@
 
   <div class="news-grid" appScrollAnimation>
     @for (noticia of noticiasList(); track noticia.titulo) {
-      <div class="bg-white border-round border-1 border-200 overflow-hidden flex flex-column justify-content-between hover-card" style="border-radius: 14px;">
+      <div class="news-card card bg-white border-round shadow-1 border-1 border-200 overflow-hidden flex flex-column">
 
-        <div class="relative">
-          <img [src]="noticia.imagen" [alt]="'Imagen: ' + noticia.titulo" loading="lazy" class="w-full" style="height: 200px; object-fit: cover;" />
-          <span class="absolute top-0 right-0 m-3 text-xs font-bold text-white bg-blue-700 px-2 py-1 border-round uppercase">
-            {{ noticia.categoria }}
-          </span>
+        <div class="news-img-wrap">
+          <img [src]="noticia.imagen" [alt]="'Imagen: ' + noticia.titulo" loading="lazy" class="news-img" />
+          <span class="news-category-badge">{{ noticia.categoria }}</span>
         </div>
 
-        <div class="p-4 flex-grow-1">
-          <span class="text-xs text-gray-500 font-medium block mb-2">
-            <i class="pi pi-calendar mr-1"></i>{{ noticia.fecha }}
-          </span>
-          <h3 class="text-lg font-bold text-gray-800 mb-2 leading-tight" style="min-height: 3rem;">{{ noticia.titulo }}</h3>
-          <p class="text-gray-600 text-sm leading-relaxed mb-4">{{ noticia.resumen }}</p>
-        </div>
-
-        <div class="px-4 pb-4 pt-2 border-top-1 border-100 flex justify-content-end">
-          <p-button label="Leer más" icon="pi pi-arrow-right" [text]="true" size="small"></p-button>
+        <div class="news-body p-5 flex-grow-1 flex flex-column">
+          <span class="news-date"><i class="pi pi-calendar mr-1"></i>{{ noticia.fecha }}</span>
+          <h3 class="news-title">{{ noticia.titulo }}</h3>
+          <p class="news-summary">{{ noticia.resumen }}</p>
+          <div class="mt-auto pt-3 border-top-1 border-100">
+            <p-button label="Leer más" icon="pi pi-arrow-right" [text]="true" size="small"></p-button>
+          </div>
         </div>
 
       </div>
     }
   </div>
-
 </div>

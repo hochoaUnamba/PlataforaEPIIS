@@ -2,47 +2,62 @@ import { Injectable, signal } from '@angular/core';
 
 export interface Laboratorio {
   nombre: string;
+  descripcion: string;
+  equipamiento: string[];
   capacidad: number;
+  imagen: string;
+  estado: string;
   ubicacion: string;
   encargado: string;
-  equipos: string[];
-  imagen: string;
-  estado: 'Operativo' | 'Mantenimiento';
 }
 
 @Injectable({ providedIn: 'root' })
 export class LaboratoriesService {
-  private laboratorios = signal<Laboratorio[]>([
+  private loading = signal(false);
+
+  private laboratoriosList = signal<Laboratorio[]>([
     {
-      nombre: 'Laboratorio de Inteligencia Artificial y Robótica',
+      nombre: 'Laboratorio de Cómputo I',
+      descripcion: 'Equipado con estaciones de trabajo modernas para desarrollo de software y aplicaciones multimedia.',
+      equipamiento: ['20 PCs Intel Core i7', 'Monitores 24"', 'Software especializado', 'UPS'],
+      capacidad: 20,
+      imagen: 'assets/images/lab-placeholder.svg',
+      estado: 'Operativo',
+      ubicacion: 'Pabellón EPIIS - Piso 1',
+      encargado: 'Ing. Luis Torres'
+    },
+    {
+      nombre: 'Laboratorio de Cómputo II',
+      descripcion: 'Espacio equipado para prácticas de redes, bases de datos y sistemas operativos.',
+      equipamiento: ['25 PCs AMD Ryzen 5', 'Switches Cisco', 'Servidor local', 'Aire acondicionado'],
       capacidad: 25,
-      ubicacion: 'Cuarto Piso',
-      encargado: 'Dr. Carlos Mendoza Ramos',
-      equipos: ['GPUs NVIDIA RTX', 'Kits de Robótica Arduino/Raspberry', 'Estaciones de Trabajo Linux'],
       imagen: 'assets/images/lab-placeholder.svg',
-      estado: 'Operativo'
+      estado: 'Operativo',
+      ubicacion: 'Pabellón EPIIS - Piso 2',
+      encargado: 'Ing. María López'
     },
     {
-      nombre: 'Laboratorio de Redes y Ciberseguridad',
-      capacidad: 30,
-      ubicacion: 'Tercer Piso',
-      encargado: 'Ing. Jorge Torres Castillo',
-      equipos: ['Routers y Switches Cisco v3', 'Servidores de Prueba', 'Racks de Comunicaciones'],
+      nombre: 'Laboratorio de Robótica',
+      descripcion: 'Entorno especializado con kits robóticos, microcontroladores y sensores para proyectos de automatización.',
+      equipamiento: ['Kits Arduino', 'Raspberry Pi 4', 'Brazos robóticos', 'Impresora 3D'],
+      capacidad: 15,
       imagen: 'assets/images/lab-placeholder.svg',
-      estado: 'Operativo'
-    },
-    {
-      nombre: 'Laboratorio de Desarrollo de Software Fullstack',
-      capacidad: 40,
-      ubicacion: 'Segundo Piso',
-      encargado: 'Msc. Inés Palomino Silva',
-      equipos: ['Monitores Duales', 'Estaciones de Alta Gama Core i7', 'Servidores NAS'],
-      imagen: 'assets/images/lab-placeholder.svg',
-      estado: 'Mantenimiento'
+      estado: 'Mantenimiento',
+      ubicacion: 'Pabellón de Ingenierías - Piso 1',
+      encargado: 'Ing. Carlos Reyes'
     }
   ]);
 
   getLaboratorios() {
-    return this.laboratorios.asReadonly();
+    return this.laboratoriosList.asReadonly();
+  }
+
+  isLoading() {
+    return this.loading.asReadonly();
+  }
+
+  simulateLoad() {
+    this.loading.set(true);
+    setTimeout(() => this.loading.set(false), 600);
   }
 }

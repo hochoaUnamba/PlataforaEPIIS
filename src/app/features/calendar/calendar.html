@@ -1,0 +1,27 @@
+<div class="calendar-page max-w-7xl mx-auto px-6 lg:px-8 pt-6 md:pt-8">
+
+  <div class="section-header" appScrollAnimation>
+    <span class="section-badge">Calendario</span>
+    <h1 class="section-title">Calendario Académico</h1>
+    <p class="section-subtitle">Fechas importantes del semestre EPIIS</p>
+  </div>
+
+  <div class="max-w-4xl mx-auto" appScrollAnimation>
+    @for (evento of eventos; track evento.titulo) {
+      <div class="cal-event-card card bg-white p-5 border-round shadow-1 border-1 border-200 mb-3">
+        <div class="flex align-items-start gap-4">
+          <div class="cal-date-box flex-shrink-0">
+            <span class="cal-date-text">{{ evento.fecha }}</span>
+          </div>
+          <div class="flex-1">
+            <div class="flex align-items-center gap-2 mb-1">
+              <h3 class="text-base font-bold m-0 text-gray-800">{{ evento.titulo }}</h3>
+              <p-tag [value]="evento.tipo" [severity]="getSeverity(evento.tipo)" class="ml-auto"></p-tag>
+            </div>
+            <p class="text-sm text-gray-500 m-0 mt-1">{{ evento.descripcion }}</p>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+</div>

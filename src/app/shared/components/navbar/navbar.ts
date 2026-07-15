@@ -1,12 +1,13 @@
 import { Component, HostListener, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { MenubarModule } from 'primeng/menubar';
 import { MenuItem, SharedModule } from 'primeng/api';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [CommonModule, MenubarModule, SharedModule],
+  imports: [CommonModule, RouterModule, MenubarModule, SharedModule],
   templateUrl: './navbar.html',
   styleUrl: './navbar.scss'
 })
@@ -17,17 +18,19 @@ export class NavbarComponent {
     { label: 'Inicio', routerLink: '/home' },
     {
       label: 'Nosotros',
-      icon: 'pi pi-university',
       items: [
-        { label: 'Quiénes Somos', icon: 'pi pi-info-circle', routerLink: '/about' },
-        { label: 'Misión y Visión', icon: 'pi pi-compass', routerLink: '/about', fragment: 'mision-vision' }
+        { label: 'Quiénes Somos', routerLink: '/about' },
+        { label: 'Misión y Visión', routerLink: '/about', fragment: 'mision-vision' }
       ]
-    },      
-    { label: 'Docentes', icon: 'pi pi-users', routerLink: '/teachers' },
-    { label: 'Laboratorios', icon: 'pi pi-database', routerLink: '/laboratories' },
-    { label: 'Investigación', icon: 'pi pi-search', routerLink: '/research' },
-    { label: 'Noticias', icon: 'pi pi-megaphone', routerLink: '/news' },
-    { label: 'Contacto', icon: 'pi pi-envelope', routerLink: '/contact' }
+    },
+    { label: 'Docentes', routerLink: '/teachers' },
+    { label: 'Laboratorios', routerLink: '/laboratories' },
+    { label: 'Académico', routerLink: '/academic' },
+    { label: 'Investigación', routerLink: '/research' },
+    { label: 'Noticias', routerLink: '/news' },
+    { label: 'Eventos', routerLink: '/events' },
+    { label: 'Galería', routerLink: '/gallery' },
+    { label: 'Contacto', routerLink: '/contact' }
   ];
 
   @HostListener('window:scroll', [])
@@ -35,5 +38,3 @@ export class NavbarComponent {
     this.isScrolled.set(window.scrollY > 60);
   }
 }
-
-

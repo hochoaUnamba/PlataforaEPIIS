@@ -1,46 +1,53 @@
-<div class="admissions-page max-w-7xl mx-auto px-4 md:px-6">
-  <div class="text-center my-5" appScrollAnimation>
+<div class="admissions-page max-w-7xl mx-auto px-6 lg:px-8 pt-6 md:pt-8">
+
+  <div class="section-header" appScrollAnimation>
     <span class="section-badge">Admisión</span>
     <h1 class="section-title">Admisión EPIIS</h1>
     <p class="section-subtitle">Conoce las modalidades, requisitos y fechas para formar parte de nuestra escuela profesional.</p>
   </div>
 
   <div class="admissions-grid" appScrollAnimation>
-    <div class="bg-white p-4 border-round border-1 border-200" style="border-radius: 16px;">
-      <h2 class="text-xl font-bold mb-4 flex align-items-center gap-2" style="color: #1e3a8a;">
-        <i class="pi pi-list"></i> Modalidades de Ingreso
-      </h2>
+    <div class="card bg-white p-5 border-round shadow-1 border-1 border-200">
+      <div class="flex align-items-center gap-2 mb-4">
+        <i class="pi pi-list text-blue-600 text-xl"></i>
+        <h2 class="text-lg font-bold m-0 text-gray-800">Modalidades de Ingreso</h2>
+      </div>
       <div class="flex flex-column gap-3">
         @for (modalidad of modalidades; track modalidad.titulo) {
-          <div class="flex align-items-start gap-3 p-3 border-1 border-100 border-round" style="border-radius: 10px;">
-            <i [class]="modalidad.icono + ' text-2xl text-blue-600 mt-1'"></i>
-            <div>
-              <h3 class="font-bold text-gray-800 mb-1">{{ modalidad.titulo }}</h3>
-              <p class="text-gray-600 text-sm m-0">{{ modalidad.descripcion }}</p>
+          <div class="admission-modalidad">
+            <div class="flex align-items-start gap-3">
+              <div class="admission-icon-box">
+                <i [class]="modalidad.icono + ' text-blue-600 text-lg'"></i>
+              </div>
+              <div>
+                <h3 class="font-bold text-gray-800 mb-1 m-0 text-sm">{{ modalidad.titulo }}</h3>
+                <p class="text-gray-500 text-xs m-0 mt-1 leading-relaxed">{{ modalidad.descripcion }}</p>
+              </div>
             </div>
           </div>
         }
       </div>
     </div>
 
-    <div class="bg-white p-4 border-round border-1 border-200" style="border-radius: 16px;">
-      <h2 class="text-xl font-bold mb-4 flex align-items-center gap-2" style="color: #1e3a8a;">
-        <i class="pi pi-check-circle"></i> Requisitos Generales
-      </h2>
+    <div class="card bg-white p-5 border-round shadow-1 border-1 border-200">
+      <div class="flex align-items-center gap-2 mb-4">
+        <i class="pi pi-check-circle text-blue-600 text-xl"></i>
+        <h2 class="text-lg font-bold m-0 text-gray-800">Requisitos Generales</h2>
+      </div>
       <ul class="list-none p-0 m-0">
         @for (req of requisitos; track req; let i = $index) {
-          <li class="flex align-items-start gap-2 py-2 border-bottom-1 border-100">
-            <span class="flex-shrink-0 bg-blue-100 text-blue-700 font-bold border-round inline-flex align-items-center justify-content-center" style="width: 24px; height: 24px; font-size: 0.75rem;">{{ i + 1 }}</span>
-            <span class="text-gray-700">{{ req }}</span>
+          <li class="requisito-item">
+            <span class="requisito-num">{{ i + 1 }}</span>
+            <span class="text-gray-700 text-sm">{{ req }}</span>
           </li>
         }
       </ul>
     </div>
   </div>
 
-  <div class="bg-blue-50 border-round border-1 border-blue-200 p-4 mt-4 text-center" style="border-radius: 12px;">
-    <i class="pi pi-info-circle text-blue-600 text-2xl mb-2 block"></i>
-    <p class="text-gray-700 font-medium m-0">Próximas fechas de admisión: Consulta la convocatoria oficial en la página de UNAMBA.</p>
+  <div class="card bg-gradient-to-r from-blue-50 to-indigo-50 p-5 border-round shadow-1 border-1 border-blue-100 mt-4 text-center">
+    <i class="pi pi-info-circle text-blue-500 text-2xl mb-2 block"></i>
+    <p class="text-gray-700 font-medium m-0 text-sm">Próximas fechas de admisión: Consulta la convocatoria oficial en la página de UNAMBA.</p>
     <a href="https://unamba.edu.pe/admision" target="_blank" pButton label="Ir a UNAMBA" icon="pi pi-external-link" [text]="true" severity="info" class="mt-2"></a>
   </div>
 </div>

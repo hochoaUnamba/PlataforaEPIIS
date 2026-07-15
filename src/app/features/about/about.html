@@ -1,38 +1,41 @@
-<div class="about-page max-w-7xl mx-auto px-4 md:px-6">
+<div class="about-page max-w-7xl mx-auto px-6 lg:px-8 pt-6 md:pt-8">
 
-  <section class="intro-section text-center my-5" appScrollAnimation>
+  <div class="section-header" appScrollAnimation>
     <span class="section-badge">Nosotros</span>
     <h1 class="section-title">Nuestra Escuela Profesional</h1>
     <p class="section-subtitle">Conoce la historia, misión y visión que guían la formación de nuestros ingenieros.</p>
+  </div>
 
-    <div class="bg-white p-5 border-round shadow-1 max-w-4xl mx-auto text-left border-1 border-200 mt-5" style="border-radius: 16px;">
-      <h3 class="text-xl font-bold mb-3 flex align-items-center" style="color: #1e3a8a;">
-        <i class="pi pi-university mr-2 text-2xl"></i>Quiénes Somos
-      </h3>
-      <p class="text-gray-700 leading-relaxed" style="line-height: 1.8;">{{ quienesSomos }}</p>
-    </div>
-  </section>
-
-  <section id="mision-vision" class="identity-grid my-5" appScrollAnimation>
-    <div class="bg-white p-5 border-round border-1 border-200 text-center" style="border-radius: 16px;">
-      <div class="flex flex-column align-items-center mb-3">
-        <div class="flex align-items-center justify-content-center bg-blue-50 border-round" style="width: 60px; height: 60px;">
-          <i class="pi pi-compass text-3xl text-blue-700"></i>
-        </div>
-        <h2 class="text-2xl font-bold text-gray-800 mt-3">Misión</h2>
+  <div class="card bg-white p-5 border-round shadow-1 border-1 border-200 max-w-4xl mx-auto mb-4 hover-lift" appScrollAnimation>
+    <div class="flex align-items-center gap-3 mb-3">
+      <div class="about-icon-box">
+        <i class="pi pi-university text-blue-700 text-xl"></i>
       </div>
-      <p class="text-gray-600 leading-relaxed" style="line-height: 1.8;">{{ mision }}</p>
+      <h3 class="text-lg font-bold m-0 text-gray-800">Quiénes Somos</h3>
+    </div>
+    <p class="text-gray-600 leading-relaxed m-0">{{ quienesSomos }}</p>
+  </div>
+
+  <div class="identity-grid mb-4" appScrollAnimation>
+    <div class="card bg-white p-5 border-round shadow-1 border-1 border-200 text-center hover-lift">
+      <div class="flex flex-column align-items-center mb-3">
+        <div class="about-icon-box-lg">
+          <i class="pi pi-compass text-blue-700 text-2xl"></i>
+        </div>
+        <h2 class="text-xl font-bold text-gray-800 mt-3 m-0">Misión</h2>
+      </div>
+      <p class="text-gray-600 leading-relaxed m-0">{{ mision }}</p>
     </div>
 
-    <div class="bg-white p-5 border-round border-1 border-200 text-center" style="border-radius: 16px;">
+    <div class="card bg-white p-5 border-round shadow-1 border-1 border-200 text-center hover-lift">
       <div class="flex flex-column align-items-center mb-3">
-        <div class="flex align-items-center justify-content-center bg-blue-50 border-round" style="width: 60px; height: 60px;">
-          <i class="pi pi-eye text-3xl text-blue-700"></i>
+        <div class="about-icon-box-lg">
+          <i class="pi pi-eye text-blue-700 text-2xl"></i>
         </div>
-        <h2 class="text-2xl font-bold text-gray-800 mt-3">Visión</h2>
+        <h2 class="text-xl font-bold text-gray-800 mt-3 m-0">Visión</h2>
       </div>
-      <p class="text-gray-600 leading-relaxed" style="line-height: 1.8;">{{ vision }}</p>
+      <p class="text-gray-600 leading-relaxed m-0">{{ vision }}</p>
     </div>
-  </section>
+  </div>
 
 </div>

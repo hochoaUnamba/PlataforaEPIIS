@@ -1,0 +1,39 @@
+@use '../../core/styles/variables' as *;
+
+.admin-page {
+  padding-bottom: 4rem;
+
+  .admin-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .admin-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: $radius-card;
+    text-align: center;
+    border: 1px solid $border;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+      border-color: $primary-light;
+    }
+  }
+
+  .admin-login-icon {
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, $primary-50, $blue-100);
+    border-radius: 16px;
+    margin: 0 auto;
+    color: $primary;
+  }
+}

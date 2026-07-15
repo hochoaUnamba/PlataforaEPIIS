@@ -5,36 +5,54 @@ export interface Noticia {
   fecha: string;
   resumen: string;
   imagen: string;
-  categoria: 'Académico' | 'Competencia' | 'Comunidad';
+  categoria: string;
 }
 
 @Injectable({ providedIn: 'root' })
 export class NewsService {
+  private loading = signal(false);
+
   private noticiasList = signal<Noticia[]>([
     {
-      titulo: 'Inicio de Año Académico',
-      fecha: 'Marzo 2026',
-      resumen: 'Damos una cordial bienvenida a toda nuestra comunidad estudiantil y docente al nuevo ciclo de formación en Ingeniería Informática y de Sistemas.',
+      titulo: 'Conferencia Internacional de IA 2025',
+      fecha: '15 Nov 2025',
+      resumen: 'Estudiantes de EPIIS participaron en la conferencia internacional con proyectos de Machine Learning.',
       imagen: 'assets/images/news-placeholder.svg',
-      categoria: 'Académico'
+      categoria: 'Eventos'
     },
     {
-      titulo: 'ABANCAYTEST XXIII Te Espera',
-      fecha: 'Junio 2026',
-      resumen: 'Desafía tus habilidades algorítmicas y de programación competitiva en el torneo más importante de la región. Inscripciones abiertas para todos los semestres.',
+      titulo: 'Nuevo Convenio con Empresa TechSolutions',
+      fecha: '20 Oct 2025',
+      resumen: 'Convenio firmado para pasantías y proyectos colaborativos en desarrollo de software.',
       imagen: 'assets/images/news-placeholder.svg',
-      categoria: 'Competencia'
+      categoria: 'Convenios'
     },
     {
-      titulo: 'NEUROKUP – Conquista la IA',
-      fecha: 'Julio 2026',
-      resumen: 'Participa en el taller y hackatón enfocado en el desarrollo de agentes inteligentes, redes neuronales y extracción de conocimiento.',
+      titulo: 'Semana de la Ingeniería Informática',
+      fecha: '5 Oct 2025',
+      resumen: 'Talleres, hackathons y charlas magistrales con expertos de la industria.',
       imagen: 'assets/images/news-placeholder.svg',
-      categoria: 'Competencia'
+      categoria: 'Eventos'
+    },
+    {
+      titulo: 'Proyecto de Investigación Ganador',
+      fecha: '28 Sep 2025',
+      resumen: 'Equipo de EPIIS obtiene primer lugar en concurso nacional de investigación aplicada.',
+      imagen: 'assets/images/news-placeholder.svg',
+      categoria: 'Logros'
     }
   ]);
 
   getNoticias() {
     return this.noticiasList.asReadonly();
+  }
+
+  isLoading() {
+    return this.loading.asReadonly();
+  }
+
+  simulateLoad() {
+    this.loading.set(true);
+    setTimeout(() => this.loading.set(false), 600);
   }
 }

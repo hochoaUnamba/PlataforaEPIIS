@@ -1,5 +1,5 @@
 import { SharedModule } from 'primeng/api';
-import { Component, signal, computed } from '@angular/core';
+import { Component, signal, computed, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { CardModule } from 'primeng/card';
@@ -10,6 +10,7 @@ import { InputIconModule } from 'primeng/inputicon';
 import { TooltipModule } from 'primeng/tooltip';
 import { TeachersService, Docente } from '../../core/services/teachers.service';
 import { ScrollAnimationDirective } from '../../shared/directives/scroll-animation.directive';
+import { SeoService } from '../../core/services/seo.service';
 
 @Component({
   selector: 'app-teachers',
@@ -30,10 +31,14 @@ import { ScrollAnimationDirective } from '../../shared/directives/scroll-animati
   styleUrl: './teachers.scss'
 })
 export class TeachersComponent {
+  private seo = inject(SeoService);
+  private teachersService = inject(TeachersService);
+
   searchTerm = signal<string>('');
   docentesList = signal<Docente[]>([]);
 
-  constructor(private teachersService: TeachersService) {
+  constructor() {
+    this.seo.setPageMeta({ description: 'Conoce a los docentes de la Escuela Profesional de Ingeniería Informática y Sistemas de la UNAMBA.' });
     this.docentesList.set(this.teachersService.getDocentes()());
   }
 

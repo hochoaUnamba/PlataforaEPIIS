@@ -10,6 +10,8 @@ export interface Docente {
 
 @Injectable({ providedIn: 'root' })
 export class TeachersService {
+  private loading = signal(false);
+
   private docentesList = signal<Docente[]>([
     {
       nombre: 'Dr. Carlos Mendoza Ramos',
@@ -36,5 +38,14 @@ export class TeachersService {
 
   getDocentes() {
     return this.docentesList.asReadonly();
+  }
+
+  isLoading() {
+    return this.loading.asReadonly();
+  }
+
+  simulateLoad() {
+    this.loading.set(true);
+    setTimeout(() => this.loading.set(false), 600);
   }
 }

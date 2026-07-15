@@ -1,9 +1,99 @@
+@use '../../core/styles/variables' as *;
+
 .research-page {
   padding-bottom: 4rem;
+
+  .research-lines {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .research-line-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.9rem 0;
+    border-bottom: 1px solid $border;
+
+    &:last-child { border-bottom: none; }
+  }
+
+  .line-number {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, $primary, $primary-light);
+    color: white;
+    font-weight: 700;
+    font-size: 0.8rem;
+    border-radius: 8px;
+    flex-shrink: 0;
+  }
+
+  .line-text {
+    font-size: 0.95rem;
+    color: $text-dark;
+    font-weight: 500;
+  }
 
   .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
     gap: 2rem;
+  }
+
+  .project-card {
+    border-radius: $radius-card;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+    &:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+    }
+  }
+
+  .project-line-tag {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: $primary;
+    background: $primary-50;
+    padding: 0.25rem 0.7rem;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  .project-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: $text-dark;
+    margin: 0 0 0.5rem;
+    line-height: 1.35;
+  }
+
+  .project-desc {
+    font-size: 0.85rem;
+    color: $text-muted;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .project-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+    margin-top: 1rem;
+    border-top: 1px solid $border;
+  }
+
+  .project-author {
+    font-size: 0.8rem;
+    color: $text-light;
+    display: inline-flex;
+    align-items: center;
   }
 }

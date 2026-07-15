@@ -1,46 +1,46 @@
-<div class="research-page max-w-7xl mx-auto px-4 md:px-6">
+<div class="research-page max-w-7xl mx-auto px-6 lg:px-8 pt-6 md:pt-8">
 
-  <div class="text-center my-5" appScrollAnimation>
+  <div class="section-header" appScrollAnimation>
     <span class="section-badge">Investigación</span>
     <h1 class="section-title">Investigación e Innovación</h1>
     <p class="section-subtitle">Producción científica y desarrollo tecnológico de la Escuela Profesional de Ingeniería Informática y de Sistemas.</p>
   </div>
 
-  <div class="bg-gray-50 p-4 border-round border-1 border-200 mb-5" style="border-radius: 16px;" appScrollAnimation>
-    <h3 class="text-xl font-bold mb-3 flex align-items-center" style="color: #1e3a8a;">
-      <i class="pi pi-compass mr-2 text-xl"></i>Líneas de Investigación Prioritarias
-    </h3>
-    <div class="flex flex-wrap gap-2">
-      @for (linea of lineasInvestigacion(); track linea) {
-        <span class="bg-white border-1 border-300 text-gray-700 font-medium px-3 py-2 border-round shadow-1 text-sm flex align-items-center" style="border-radius: 8px;">
-          <i class="pi pi-check-circle text-blue-600 mr-2"></i>{{ linea }}
-        </span>
-      }
+  <div class="card bg-white p-5 border-round shadow-1 border-1 border-200 mb-4" appScrollAnimation>
+    <div class="flex align-items-center gap-2 mb-3">
+      <i class="pi pi-compass text-blue-600 text-xl"></i>
+      <h3 class="text-lg font-bold m-0 text-gray-800">Líneas de Investigación Prioritarias</h3>
     </div>
+    <ul class="research-lines list-none p-0 m-0">
+      @for (linea of lineasInvestigacion(); track linea; let i = $index) {
+        <li class="research-line-item">
+          <span class="line-number">{{ i + 1 }}</span>
+          <span class="line-text">{{ linea }}</span>
+        </li>
+      }
+    </ul>
   </div>
 
   <div appScrollAnimation>
-    <h3 class="text-2xl font-bold mb-4" style="color: #1e3a8a;">Proyectos de Investigación</h3>
+    <div class="flex align-items-center gap-2 mb-4">
+      <i class="pi pi-book text-blue-600 text-xl"></i>
+      <h3 class="text-lg font-bold m-0 text-gray-800">Proyectos de Investigación</h3>
+    </div>
 
     <div class="projects-grid">
       @for (proy of proyectos(); track proy.titulo) {
-        <div class="bg-white p-4 border-round border-1 border-200 flex flex-column justify-content-between" style="border-radius: 14px;">
+        <div class="project-card card bg-white p-5 border-round shadow-1 border-1 border-200 flex flex-column">
           <div>
             <div class="flex justify-content-between align-items-start gap-2 mb-3">
-              <span class="text-xs font-bold text-blue-700 bg-blue-50 px-2 py-1 border-round uppercase">
-                {{ proy.linea }}
-              </span>
-              <p-tag
-                [value]="proy.estado"
-                [severity]="proy.estado === 'En Ejecución' ? 'info' : 'success'">
-              </p-tag>
+              <span class="project-line-tag">{{ proy.linea }}</span>
+              <p-tag [value]="proy.estado" [severity]="proy.estado === 'En Ejecución' ? 'info' : 'success'"></p-tag>
             </div>
-            <h4 class="text-lg font-bold text-gray-800 mb-2 leading-tight">{{ proy.titulo }}</h4>
-            <p class="text-gray-600 text-sm leading-relaxed mb-3">{{ proy.descripcion }}</p>
+            <h4 class="project-title">{{ proy.titulo }}</h4>
+            <p class="project-desc">{{ proy.descripcion }}</p>
           </div>
-          <div class="pt-3 border-top-1 border-100 flex justify-content-between align-items-center">
-            <span class="text-xs text-gray-500">
-              <i class="pi pi-user mr-1"></i><strong>Inv:</strong> {{ proy.coordinador }}
+          <div class="project-footer">
+            <span class="project-author">
+              <i class="pi pi-user mr-1"></i>{{ proy.coordinador }}
             </span>
             <p-button label="Ver Repositorio" icon="pi pi-external-link" [text]="true" size="small"></p-button>
           </div>

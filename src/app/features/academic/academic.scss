@@ -9,9 +9,14 @@
 
   .malla-toggle {
     display: flex;
-    justify-content: center;
     gap: 1rem;
+    justify-content: center;
     flex-wrap: wrap;
+  }
+
+  .pdf-viewer {
+    width: 100%;
+    min-height: 80vh;
   }
 
   .malla-btn {
@@ -20,7 +25,7 @@
     gap: 0.6rem;
     padding: 0.85rem 1.5rem;
     border: 2px solid $border;
-    border-radius: 14px;
+    border-radius: $radius-card;
     background: $white;
     cursor: pointer;
     transition: all $transition;
@@ -77,7 +82,7 @@
     gap: 0.75rem;
     background: $primary-50;
     border: 1px solid rgba($primary, 0.15);
-    border-radius: 12px;
+    border-radius: $radius-md;
     padding: 1rem 1.25rem;
     margin-bottom: 2rem;
 
@@ -128,7 +133,7 @@
 
   .academic-card {
     :host ::ng-deep .p-card {
-      border-radius: 14px;
+      border-radius: $radius-card;
       border: 1px solid $border;
 
       .p-card-title {

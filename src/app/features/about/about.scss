@@ -1,8 +1,32 @@
+@use '../../core/styles/variables' as *;
+
 .about-page {
+  padding-bottom: 4rem;
+
   .identity-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
     gap: 2.5rem;
   }
-  .identity-card { height: 100%; }
+
+  .about-icon-box {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, $primary-50, $blue-100);
+    border-radius: $radius-md;
+  }
+
+  .about-icon-box-lg {
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, $primary-50, $blue-100);
+    border-radius: $radius-lg;
+    border: 1px solid rgba($primary, 0.08);
+  }
 }

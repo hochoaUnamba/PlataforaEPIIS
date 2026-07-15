@@ -3,6 +3,12 @@
   <section class="hero-section">
     <div class="hero-overlay"></div>
     <div class="hero-bg-pattern"></div>
+    <div class="hero-shapes" aria-hidden="true">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+      <div class="shape shape-3"></div>
+      <div class="shape shape-4"></div>
+    </div>
     <div class="hero-content">
       <span class="hero-badge">Escuela Profesional</span>
       <h1 class="hero-title">
@@ -24,9 +30,9 @@
   </section>
 
   <section class="stats-section" appScrollAnimation>
-    <div class="stats-grid max-w-7xl mx-auto px-4">
+    <div class="stats-grid max-w-7xl mx-auto px-6 lg:px-8">
       @for (stat of stats; track stat.label) {
-        <div class="stat-item">
+        <div class="stat-card">
           <i [class]="stat.icon + ' stat-icon'"></i>
           <span class="stat-value">{{ stat.value }}</span>
           <span class="stat-label">{{ stat.label }}</span>
@@ -35,8 +41,8 @@
     </div>
   </section>
 
-  <section class="features-section py-6 max-w-7xl mx-auto px-4" appScrollAnimation>
-    <div class="text-center mb-5">
+  <section class="features-section py-5 max-w-7xl mx-auto px-6 lg:px-8" appScrollAnimation>
+    <div class="section-header">
       <span class="section-badge">Accesos Rápidos</span>
       <h2 class="section-title">Explora EPIIS</h2>
       <p class="section-subtitle">Encuentra la información clave de nuestra escuela profesional</p>
@@ -44,27 +50,16 @@
 
     <div class="grid-container">
       @for (feat of features; track feat.title) {
-        <div class="feature-card bg-white border-round shadow-1 flex flex-column justify-content-between text-left hover-card">
-
+        <div class="feature-card" [routerLink]="feat.route">
           <div>
             <div class="feature-icon-wrap">
               <i [class]="feat.icon + ' feature-icon'"></i>
             </div>
-            <h3 class="feature-card-title">{{ feat.title }}</h3>
+            <h3 class="feature-card-title mb-2">{{ feat.title }}</h3>
             <p class="feature-card-desc">{{ feat.description }}</p>
           </div>
-
-          <div class="pt-3 border-top-1 border-100 flex justify-content-center">
-            <p-button
-              label="Explorar"
-              icon="pi pi-arrow-right"
-              iconPos="right"
-              [outlined]="true"
-              severity="secondary"
-              size="small"
-              [routerLink]="feat.route"
-              styleClass="w-full md:w-8rem cursor-pointer">
-            </p-button>
+          <div class="feature-card-footer">
+            <span class="feature-card-link">Explorar <i class="pi pi-arrow-right ml-1"></i></span>
           </div>
         </div>
       }

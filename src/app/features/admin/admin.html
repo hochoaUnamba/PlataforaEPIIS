@@ -1,0 +1,69 @@
+<div class="admin-page max-w-7xl mx-auto px-6 lg:px-8 pt-6 md:pt-8">
+
+  @if (!isLoggedIn()) {
+    <div class="section-header">
+      <span class="section-badge">Admin</span>
+      <h1 class="section-title">Panel de Administración</h1>
+      <p class="section-subtitle">Ingresa tus credenciales para acceder</p>
+    </div>
+
+    <div class="max-w-sm mx-auto">
+      <p-toast></p-toast>
+      <div class="card bg-white p-5 border-round shadow-1 border-1 border-200">
+        <div class="text-center mb-4">
+          <div class="admin-login-icon">
+            <i class="pi pi-shield text-2xl"></i>
+          </div>
+          <h3 class="text-lg font-bold m-0 mt-2 text-gray-800">Acceso Restringido</h3>
+        </div>
+        <form (ngSubmit)="doLogin()" class="flex flex-column gap-4">
+          <div class="flex flex-column gap-2">
+            <label for="username" class="font-semibold text-gray-700 text-sm">Usuario</label>
+            <input pInputText id="username" [(ngModel)]="username" name="username" placeholder="admin" required />
+          </div>
+          <div class="flex flex-column gap-2">
+            <label for="password" class="font-semibold text-gray-700 text-sm">Contraseña</label>
+            <input pInputText id="password" type="password" [(ngModel)]="password" name="password" placeholder="••••••••" required />
+          </div>
+          <p-button type="submit" label="Ingresar" icon="pi pi-sign-in" styleClass="w-full"></p-button>
+        </form>
+      </div>
+    </div>
+  } @else {
+    <div class="section-header">
+      <span class="section-badge">Admin</span>
+      <h1 class="section-title">Panel de Administración</h1>
+      <p class="section-subtitle">Gestión de contenido EPIIS</p>
+    </div>
+
+    <div class="card bg-gradient-to-r from-green-50 to-emerald-50 p-5 border-round shadow-1 border-1 border-green-100 mb-4 flex align-items-center justify-content-between gap-3">
+      <span class="text-green-800 font-medium text-sm flex align-items-center gap-2">
+        <i class="pi pi-check-circle text-green-500"></i>Sesión iniciada
+      </span>
+      <p-button label="Cerrar Sesión" icon="pi pi-sign-out" [text]="true" severity="danger" size="small" (click)="doLogout()"></p-button>
+    </div>
+
+    <div class="admin-grid">
+      <div class="admin-card">
+        <i class="pi pi-users text-3xl text-blue-600 mb-2 block"></i>
+        <h3 class="text-base font-bold m-0">Docentes</h3>
+        <p class="text-gray-500 text-xs mt-1">Gestionar plana docente</p>
+      </div>
+      <div class="admin-card">
+        <i class="pi pi-book text-3xl text-blue-600 mb-2 block"></i>
+        <h3 class="text-base font-bold m-0">Noticias</h3>
+        <p class="text-gray-500 text-xs mt-1">Administrar noticias</p>
+      </div>
+      <div class="admin-card">
+        <i class="pi pi-calendar text-3xl text-blue-600 mb-2 block"></i>
+        <h3 class="text-base font-bold m-0">Eventos</h3>
+        <p class="text-gray-500 text-xs mt-1">Gestionar eventos</p>
+      </div>
+      <div class="admin-card">
+        <i class="pi pi-image text-3xl text-blue-600 mb-2 block"></i>
+        <h3 class="text-base font-bold m-0">Galería</h3>
+        <p class="text-gray-500 text-xs mt-1">Administrar imágenes</p>
+      </div>
+    </div>
+  }
+</div>

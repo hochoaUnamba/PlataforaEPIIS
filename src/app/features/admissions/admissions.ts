@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
 import { AccordionModule } from 'primeng/accordion';
 import { ScrollAnimationDirective } from '../../shared/directives/scroll-animation.directive';
+import { SeoService } from '../../core/services/seo.service';
 
 @Component({
   selector: 'app-admissions',
@@ -12,7 +13,12 @@ import { ScrollAnimationDirective } from '../../shared/directives/scroll-animati
   templateUrl: './admissions.html',
   styleUrl: './admissions.scss'
 })
-export class AdmissionsComponent {
+export class AdmissionsComponent implements OnInit {
+  private seo = inject(SeoService);
+
+  ngOnInit() {
+    this.seo.setPageMeta({ description: 'Modalidades de admisión y requisitos para ingresar a la Escuela Profesional de Ingeniería Informática y Sistemas de la UNAMBA.' });
+  }
   protected readonly window = window;
   modalidades = [
     {

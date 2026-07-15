@@ -1,3 +1,5 @@
+@use '../../core/styles/variables' as *;
+
 .admissions-page {
   padding-bottom: 4rem;
 
@@ -5,5 +7,48 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
     gap: 2rem;
+  }
+
+  .admission-modalidad {
+    padding: 1.25rem;
+    background: $bg-gray;
+    border-radius: 10px;
+    transition: background 0.2s ease;
+    &:hover { background: $primary-50; }
+  }
+
+  .admission-icon-box {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    border-radius: 10px;
+    flex-shrink: 0;
+    border: 1px solid $border;
+  }
+
+  .requisito-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.7rem 0;
+    border-bottom: 1px solid $border;
+    &:last-child { border-bottom: none; }
+  }
+
+  .requisito-num {
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $primary-50;
+    color: $primary;
+    font-weight: 700;
+    font-size: 0.7rem;
+    border-radius: 6px;
+    flex-shrink: 0;
   }
 }

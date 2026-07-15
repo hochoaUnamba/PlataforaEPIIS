@@ -1,3 +1,5 @@
+@use '../../core/styles/variables' as *;
+
 .news-page {
   padding-bottom: 4rem;
 
@@ -5,20 +7,82 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
     gap: 2rem;
-    margin-top: 1.5rem;
   }
 
-  .hover-card {
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    height: 100%;
-    
+  .news-card {
+    border-radius: $radius-card;
+    padding: 0;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+
     &:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+
+      .news-img {
+        transform: scale(1.05);
+      }
     }
   }
 
-  .min-h-3rem {
-    min-height: 3rem;
+  .news-img-wrap {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .news-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+
+  .news-category-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: white;
+    background: linear-gradient(135deg, $primary, $primary-light);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    box-shadow: 0 2px 8px rgba($primary, 0.3);
+  }
+
+  .news-body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .news-date {
+    font-size: 0.78rem;
+    color: $text-light;
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+
+  .news-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: $text-dark;
+    margin: 0 0 0.5rem;
+    line-height: 1.35;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .news-summary {
+    font-size: 0.85rem;
+    color: $text-muted;
+    line-height: 1.6;
+    margin: 0 0 1rem;
+    flex-grow: 1;
   }
 }
