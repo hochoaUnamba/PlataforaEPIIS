@@ -1,5 +1,7 @@
 <div class="gallery-page max-w-7xl mx-auto px-6 lg:px-8 pt-6 md:pt-8">
 
+  <p-toast></p-toast>
+
   <div class="section-header" appScrollAnimation>
     <span class="section-badge">Galería</span>
     <h1 class="section-title">Galería Institucional</h1>
@@ -8,7 +10,7 @@
 
   <div class="gallery-grid" appScrollAnimation>
     @for (img of images; track img.src) {
-      <div class="gallery-item card bg-white overflow-hidden border-round shadow-1 border-1 border-200">
+      <div class="gallery-item card bg-white overflow-hidden border-round shadow-1 border-1 border-200" tabindex="0" role="button" (click)="abrirImagen(img)" (keydown.enter)="abrirImagen(img)" (keydown.space)="$event.preventDefault(); abrirImagen(img)">
         <img [src]="img.src" [alt]="img.alt" loading="lazy" class="w-full h-full object-cover">
         <div class="gallery-overlay">
           <span class="gallery-label">{{ img.label }}</span>

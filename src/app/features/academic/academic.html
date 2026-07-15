@@ -16,7 +16,7 @@
       <button class="malla-btn" [class.active]="selectedYear() === '2019'" (click)="switchMalla('2019')">
         <i class="pi pi-history"></i>
         <span>Malla Curricular 2019</span>
-        <span class="malla-badge">Anterior</span>
+        <span class="malla-badge anterior">Anterior</span>
       </button>
     </div>
   </div>
@@ -63,7 +63,7 @@
     @if (selectedYear() === '2022') {
       <a pButton [href]="'assets/docs/malla-2022.pdf'" download="Malla-Curricular-EPIIS-2022.pdf" icon="pi pi-download" severity="secondary" [outlined]="true" label="Descargar Malla 2022"></a>
     } @else {
-      <p-button label="Descargar Malla 2019" icon="pi pi-download" severity="secondary" [outlined]="true"></p-button>
+      <a pButton [href]="'assets/docs/malla-2022.pdf'" download="Malla-Curricular-EPIIS-2019.pdf" icon="pi pi-download" severity="secondary" [outlined]="true" label="Descargar Malla 2019"></a>
     }
   </div>
 </div>

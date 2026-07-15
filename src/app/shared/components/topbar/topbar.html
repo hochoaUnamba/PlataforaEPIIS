@@ -1,20 +1,18 @@
 <div class="topbar">
   <div class="topbar-container max-w-7xl mx-auto">
     
-    <!-- Bloque 1: Teléfono y Correo Electrónico -->
     <div class="topbar-contact">
       <span>
-        <i class="pi pi-phone mr-1"></i> 083-636050
+        <i class="pi pi-phone mr-1"></i> {{ institucional.telefono }}
       </span>
-      <a href="mailto:epiis@unamba.edu.pe" class="topbar-email">
-        <i class="pi pi-envelope mr-1"></i> epiis@unamba.edu.pe
+      <a [href]="'mailto:' + institucional.email" class="topbar-email">
+        <i class="pi pi-envelope mr-1"></i> {{ institucional.email }}
       </a>
     </div>
 
-    <!-- Bloque 2: Enlace a la Intranet de la UNAMBA -->
     <div class="topbar-actions">
-      <a href="https://unamba.edu.pe" target="_blank" class="intranet-link">
-        <i class="pi pi-user mr-1"></i> Intranet UNAMBA
+      <a href="https://unamba.edu.pe" target="_blank" rel="noopener noreferrer" class="intranet-link">
+        <i class="pi pi-user mr-1"></i> Portal UNAMBA
       </a>
     </div>
 

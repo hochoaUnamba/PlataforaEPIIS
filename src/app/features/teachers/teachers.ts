@@ -1,4 +1,4 @@
-import { SharedModule } from 'primeng/api';
+import { SharedModule, MessageService } from 'primeng/api';
 import { Component, signal, computed, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -8,6 +8,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { IconFieldModule } from 'primeng/iconfield';
 import { InputIconModule } from 'primeng/inputicon';
 import { TooltipModule } from 'primeng/tooltip';
+import { ToastModule } from 'primeng/toast';
 import { TeachersService, Docente } from '../../core/services/teachers.service';
 import { ScrollAnimationDirective } from '../../shared/directives/scroll-animation.directive';
 import { SeoService } from '../../core/services/seo.service';
@@ -24,15 +25,18 @@ import { SeoService } from '../../core/services/seo.service';
     IconFieldModule,
     InputIconModule,
     TooltipModule,
+    ToastModule,
     SharedModule,
     ScrollAnimationDirective
   ],
+  providers: [MessageService],
   templateUrl: './teachers.html',
   styleUrl: './teachers.scss'
 })
 export class TeachersComponent {
   private seo = inject(SeoService);
   private teachersService = inject(TeachersService);
+  private messageService = inject(MessageService);
 
   searchTerm = signal<string>('');
   docentesList = signal<Docente[]>([]);
@@ -50,4 +54,8 @@ export class TeachersComponent {
       d.especialidad.toLowerCase().includes(term)
     );
   });
+
+  verCV(docente: Docente) {
+    this.messageService.add({ severity: 'info', summary: 'CV', detail: `CV de ${docente.nombre} próximamente disponible.`, life: 3000 });
+  }
 }

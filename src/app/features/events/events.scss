@@ -39,6 +39,12 @@
     justify-content: center;
     background: $primary-50;
     border-radius: $radius-md;
+    transition: transform 0.25s ease, background 0.25s ease;
+  }
+
+  .event-card:hover .event-icon {
+    transform: scale(1.1) rotate(-3deg);
+    background: linear-gradient(135deg, $primary-50, $blue-100);
   }
 
   .event-body {

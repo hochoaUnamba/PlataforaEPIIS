@@ -8,6 +8,7 @@ import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { ScrollAnimationDirective } from '../../shared/directives/scroll-animation.directive';
 import { environment } from '../../../environments/environment';
+import { INSTITUCIONAL } from '../../core/config/institucional.config';
 import { SeoService } from '../../core/services/seo.service';
 
 @Component({
@@ -23,6 +24,7 @@ import { SeoService } from '../../core/services/seo.service';
 export class ContactComponent {
   private seo = inject(SeoService);
   private messageService = inject(MessageService);
+  institucional = INSTITUCIONAL;
 
   nombre = signal<string>('');
   correo = signal<string>('');

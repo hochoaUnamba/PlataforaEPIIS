@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { INSTITUCIONAL } from '../../../core/config/institucional.config';
 
 @Component({
   selector: 'app-topbar',
@@ -8,4 +9,6 @@ import { CommonModule } from '@angular/common';
   templateUrl: './topbar.html',
   styleUrl: './topbar.scss'
 })
-export class TopbarComponent {}
+export class TopbarComponent {
+  institucional = INSTITUCIONAL;
+}

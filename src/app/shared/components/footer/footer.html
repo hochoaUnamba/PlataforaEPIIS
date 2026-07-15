@@ -3,19 +3,19 @@
 
     <div class="footer-grid">
       <div class="footer-col">
-        <h4 class="footer-heading">EPIIS – UNAMBA</h4>
-        <p class="footer-text">Escuela Profesional de Ingeniería Informática y Sistemas</p>
+        <h4 class="footer-heading">{{ institucional.abreviatura }} – {{ institucional.universidadAbr }}</h4>
+        <p class="footer-text">{{ institucional.nombre }}</p>
         <div class="social-links">
-          <a href="https://facebook.com" target="_blank" class="social-icon" aria-label="Facebook">
+          <a [href]="institucional.social.facebook" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Facebook">
             <i class="pi pi-facebook"></i>
           </a>
-          <a href="https://twitter.com" target="_blank" class="social-icon" aria-label="Twitter">
+          <a [href]="institucional.social.twitter" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Twitter">
             <i class="pi pi-twitter"></i>
           </a>
-          <a href="https://youtube.com" target="_blank" class="social-icon" aria-label="YouTube">
+          <a [href]="institucional.social.youtube" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="YouTube">
             <i class="pi pi-youtube"></i>
           </a>
-          <a href="https://linkedin.com" target="_blank" class="social-icon" aria-label="LinkedIn">
+          <a [href]="institucional.social.linkedin" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn">
             <i class="pi pi-linkedin"></i>
           </a>
         </div>
@@ -38,18 +38,14 @@
       <div class="footer-col">
         <h4 class="footer-heading">Sede Central</h4>
         <div class="footer-contact">
-          <p class="footer-text">
-            Ciudad Universitaria de Tamburco<br>
-            Av. Garcilaso de la Vega N° 123<br>
-            Abancay, Apurímac – Perú
-          </p>
+          <p class="footer-text">{{ institucional.direccion }}</p>
           <div class="footer-contact-item">
             <i class="pi pi-phone mr-2"></i>
-            <span>(084) 262341</span>
+            <span>{{ institucional.telefono }}</span>
           </div>
           <div class="footer-contact-item">
             <i class="pi pi-envelope mr-2"></i>
-            <span>epiis&#64;unamba.edu.pe</span>
+            <span>{{ institucional.email }}</span>
           </div>
         </div>
       </div>

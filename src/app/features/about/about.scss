@@ -17,6 +17,12 @@
     justify-content: center;
     background: linear-gradient(135deg, $primary-50, $blue-100);
     border-radius: $radius-md;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .card:hover .about-icon-box {
+    transform: scale(1.08);
+    box-shadow: 0 4px 12px rgba($primary, 0.15);
   }
 
   .about-icon-box-lg {
@@ -28,5 +34,12 @@
     background: linear-gradient(135deg, $primary-50, $blue-100);
     border-radius: $radius-lg;
     border: 1px solid rgba($primary, 0.08);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .card:hover .about-icon-box-lg {
+    transform: scale(1.08) rotate(-3deg);
+    box-shadow: 0 6px 20px rgba($primary, 0.15);
+    border-color: rgba($primary, 0.2);
   }
 }

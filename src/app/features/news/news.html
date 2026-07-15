@@ -1,12 +1,27 @@
 <div class="news-page max-w-7xl mx-auto px-6 lg:px-8 pt-6 md:pt-8">
 
+  <p-toast></p-toast>
+
   <div class="section-header" appScrollAnimation>
     <span class="section-badge">Actualidad</span>
     <h1 class="section-title">Noticias y Actualidad</h1>
     <p class="section-subtitle">Mantente informado sobre los acontecimientos académicos, logros y eventos de nuestra Escuela Profesional.</p>
   </div>
 
+  @if (loading()) {
+    <div class="loading-spinner">
+      <i class="pi pi-spin pi-spinner text-3xl text-blue-500"></i>
+      <p class="text-gray-500 mt-2">Cargando noticias...</p>
+    </div>
+  }
+
   <div class="news-grid" appScrollAnimation>
+    @if (noticiasList().length === 0 && !loading()) {
+      <div class="empty-state">
+        <i class="pi pi-book text-4xl text-gray-300 mb-3"></i>
+        <p class="text-gray-500 font-medium">No hay noticias publicadas aún.</p>
+      </div>
+    }
     @for (noticia of noticiasList(); track noticia.titulo) {
       <div class="news-card card bg-white border-round shadow-1 border-1 border-200 overflow-hidden flex flex-column">
 
@@ -20,7 +35,7 @@
           <h3 class="news-title">{{ noticia.titulo }}</h3>
           <p class="news-summary">{{ noticia.resumen }}</p>
           <div class="mt-auto pt-3 border-top-1 border-100">
-            <p-button label="Leer más" icon="pi pi-arrow-right" [text]="true" size="small"></p-button>
+            <p-button label="Leer más" icon="pi pi-arrow-right" [text]="true" size="small" (click)="leerNoticia(noticia)"></p-button>
           </div>
         </div>
 

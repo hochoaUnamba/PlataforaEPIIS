@@ -1,5 +1,7 @@
 <div class="teachers-page max-w-7xl mx-auto px-6 lg:px-8 pt-6 md:pt-8">
 
+  <p-toast></p-toast>
+
   <div class="section-header" appScrollAnimation>
     <span class="section-badge">Plana Docente</span>
     <h1 class="section-title">Plana Docente</h1>
@@ -37,7 +39,7 @@
         <ng-template pTemplate="footer">
           <div class="flex justify-content-center gap-2">
             <a [href]="'mailto:' + docente.correo" pButton icon="pi pi-envelope" class="p-button-rounded p-button-outlined" pTooltip="Enviar Correo" [attr.aria-label]="'Enviar correo a ' + docente.nombre"></a>
-            <button pButton icon="pi pi-id-card" class="p-button-rounded p-button-secondary p-button-outlined" pTooltip="Ver Curriculum Vitae" [attr.aria-label]="'Ver CV de ' + docente.nombre"></button>
+            <button pButton icon="pi pi-id-card" class="p-button-rounded p-button-secondary p-button-outlined" pTooltip="Ver Curriculum Vitae" [attr.aria-label]="'Ver CV de ' + docente.nombre" (click)="verCV(docente)"></button>
           </div>
         </ng-template>
       </p-card>

@@ -1,5 +1,7 @@
 <div class="research-page max-w-7xl mx-auto px-6 lg:px-8 pt-6 md:pt-8">
 
+  <p-toast></p-toast>
+
   <div class="section-header" appScrollAnimation>
     <span class="section-badge">Investigación</span>
     <h1 class="section-title">Investigación e Innovación</h1>
@@ -27,7 +29,20 @@
       <h3 class="text-lg font-bold m-0 text-gray-800">Proyectos de Investigación</h3>
     </div>
 
+    @if (loading()) {
+      <div class="loading-spinner my-4">
+        <i class="pi pi-spin pi-spinner text-3xl text-blue-500"></i>
+        <p class="text-gray-500 mt-2">Cargando proyectos...</p>
+      </div>
+    }
+
     <div class="projects-grid">
+      @if (proyectos().length === 0 && !loading()) {
+        <div class="empty-state col-12">
+          <i class="pi pi-book text-4xl text-gray-300 mb-3"></i>
+          <p class="text-gray-500 font-medium">No hay proyectos de investigación registrados.</p>
+        </div>
+      }
       @for (proy of proyectos(); track proy.titulo) {
         <div class="project-card card bg-white p-5 border-round shadow-1 border-1 border-200 flex flex-column">
           <div>
@@ -42,7 +57,7 @@
             <span class="project-author">
               <i class="pi pi-user mr-1"></i>{{ proy.coordinador }}
             </span>
-            <p-button label="Ver Repositorio" icon="pi pi-external-link" [text]="true" size="small"></p-button>
+            <p-button label="Ver Repositorio" icon="pi pi-external-link" [text]="true" size="small" (click)="verRepositorio(proy)"></p-button>
           </div>
         </div>
       }

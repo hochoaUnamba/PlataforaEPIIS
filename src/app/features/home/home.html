@@ -33,7 +33,7 @@
     <div class="stats-grid max-w-7xl mx-auto px-6 lg:px-8">
       @for (stat of stats; track stat.label) {
         <div class="stat-card">
-          <i [class]="stat.icon + ' stat-icon'"></i>
+          <i [class]="stat.icon + ' stat-icon'" aria-hidden="true"></i>
           <span class="stat-value">{{ stat.value }}</span>
           <span class="stat-label">{{ stat.label }}</span>
         </div>
@@ -50,10 +50,10 @@
 
     <div class="grid-container">
       @for (feat of features; track feat.title) {
-        <div class="feature-card" [routerLink]="feat.route">
+        <div class="feature-card" [routerLink]="feat.route" tabindex="0" role="link" (keydown.enter)="$any($event.target).click()" (keydown.space)="$event.preventDefault(); $any($event.target).click()">
           <div>
             <div class="feature-icon-wrap">
-              <i [class]="feat.icon + ' feature-icon'"></i>
+              <i [class]="feat.icon + ' feature-icon'" aria-hidden="true"></i>
             </div>
             <h3 class="feature-card-title mb-2">{{ feat.title }}</h3>
             <p class="feature-card-desc">{{ feat.description }}</p>

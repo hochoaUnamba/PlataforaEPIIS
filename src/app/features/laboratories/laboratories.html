@@ -1,12 +1,27 @@
 <div class="laboratories-page max-w-7xl mx-auto px-6 lg:px-8 pt-6 md:pt-8">
 
+  <p-toast></p-toast>
+
   <div class="section-header" appScrollAnimation>
     <span class="section-badge">Laboratorios</span>
     <h1 class="section-title">Laboratorios Especializados</h1>
     <p class="section-subtitle">Nuestra infraestructura tecnológica avanzada para la investigación y la experimentación práctica en EPIIS.</p>
   </div>
 
+  @if (loading()) {
+    <div class="loading-spinner">
+      <i class="pi pi-spin pi-spinner text-3xl text-blue-500"></i>
+      <p class="text-gray-500 mt-2">Cargando laboratorios...</p>
+    </div>
+  }
+
   <div class="labs-grid" appScrollAnimation>
+    @if (laboratorios().length === 0 && !loading()) {
+      <div class="empty-state">
+        <i class="pi pi-server text-4xl text-gray-300 mb-3"></i>
+        <p class="text-gray-500 font-medium">No hay laboratorios registrados actualmente.</p>
+      </div>
+    }
     @for (lab of laboratorios(); track lab.nombre) {
       <p-card class="lab-card shadow-2 hover:shadow-4 transition-all transition-duration-300">
         <ng-template pTemplate="header">
@@ -37,7 +52,7 @@
 
         <ng-template pTemplate="footer">
           <div class="flex justify-content-end w-full pt-3 border-top-1 border-100">
-            <p-button label="Ver Horarios" icon="pi pi-calendar" [outlined]="true" severity="secondary" size="small" [attr.aria-label]="'Ver horarios de ' + lab.nombre"></p-button>
+            <p-button label="Ver Horarios" icon="pi pi-calendar" [outlined]="true" severity="secondary" size="small" [attr.aria-label]="'Ver horarios de ' + lab.nombre" (click)="verHorarios(lab)"></p-button>
           </div>
         </ng-template>
       </p-card>

@@ -25,7 +25,7 @@
             <label for="password" class="font-semibold text-gray-700 text-sm">Contraseña</label>
             <input pInputText id="password" type="password" [(ngModel)]="password" name="password" placeholder="••••••••" required />
           </div>
-          <p-button type="submit" label="Ingresar" icon="pi pi-sign-in" styleClass="w-full"></p-button>
+          <p-button type="submit" [loading]="loggingIn()" [disabled]="loggingIn()" label="Ingresar" icon="pi pi-sign-in" styleClass="w-full"></p-button>
         </form>
       </div>
     </div>
@@ -44,22 +44,22 @@
     </div>
 
     <div class="admin-grid">
-      <div class="admin-card">
+      <div class="admin-card" routerLink="/teachers" tabindex="0" role="link" (keydown.enter)="$any($event.target).click()" (keydown.space)="$event.preventDefault(); $any($event.target).click()">
         <i class="pi pi-users text-3xl text-blue-600 mb-2 block"></i>
         <h3 class="text-base font-bold m-0">Docentes</h3>
         <p class="text-gray-500 text-xs mt-1">Gestionar plana docente</p>
       </div>
-      <div class="admin-card">
+      <div class="admin-card" routerLink="/news" tabindex="0" role="link" (keydown.enter)="$any($event.target).click()" (keydown.space)="$event.preventDefault(); $any($event.target).click()">
         <i class="pi pi-book text-3xl text-blue-600 mb-2 block"></i>
         <h3 class="text-base font-bold m-0">Noticias</h3>
         <p class="text-gray-500 text-xs mt-1">Administrar noticias</p>
       </div>
-      <div class="admin-card">
+      <div class="admin-card" routerLink="/events" tabindex="0" role="link" (keydown.enter)="$any($event.target).click()" (keydown.space)="$event.preventDefault(); $any($event.target).click()">
         <i class="pi pi-calendar text-3xl text-blue-600 mb-2 block"></i>
         <h3 class="text-base font-bold m-0">Eventos</h3>
         <p class="text-gray-500 text-xs mt-1">Gestionar eventos</p>
       </div>
-      <div class="admin-card">
+      <div class="admin-card" routerLink="/gallery" tabindex="0" role="link" (keydown.enter)="$any($event.target).click()" (keydown.space)="$event.preventDefault(); $any($event.target).click()">
         <i class="pi pi-image text-3xl text-blue-600 mb-2 block"></i>
         <h3 class="text-base font-bold m-0">Galería</h3>
         <p class="text-gray-500 text-xs mt-1">Administrar imágenes</p>

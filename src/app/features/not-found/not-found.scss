@@ -1,0 +1,53 @@
+@use '../../core/styles/variables' as *;
+
+.not-found-page {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.not-found-content {
+  text-align: center;
+  max-width: 480px;
+}
+
+.not-found-icon-wrap {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fefce8;
+  border-radius: 50%;
+  margin: 0 auto 1.5rem;
+
+  i {
+    font-size: 2.5rem;
+    color: $yellow-600;
+  }
+}
+
+.not-found-code {
+  font-size: 5rem;
+  font-weight: 800;
+  color: $text-dark;
+  margin: 0 0 0.5rem;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.not-found-message {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: $text-dark;
+  margin: 0 0 0.75rem;
+}
+
+.not-found-desc {
+  font-size: 0.9rem;
+  color: $text-muted;
+  line-height: 1.6;
+  margin: 0 0 2rem;
+}

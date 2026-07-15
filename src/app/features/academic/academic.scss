@@ -46,6 +46,10 @@
       border-color: $primary-light;
       background: $primary-50;
       color: $primary;
+
+      i {
+        color: $primary;
+      }
     }
 
     &.active {
@@ -74,6 +78,11 @@
     border-radius: 20px;
     background: $bg-gray;
     color: $text-light;
+
+    &.anterior {
+      background: rgba($accent, 0.1);
+      color: $accent;
+    }
   }
 
   .malla-info {
@@ -101,10 +110,10 @@
     }
 
     &.anterior {
-      background: #fefce8;
-      border-color: rgba(234, 179, 8, 0.2);
+      background: $yellow-50;
+      border-color: rgba($yellow-600, 0.2);
 
-      i { color: #ca8a04; }
+      i { color: $yellow-600; }
     }
   }
 
@@ -132,9 +141,17 @@
   }
 
   .academic-card {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+    }
+
     :host ::ng-deep .p-card {
       border-radius: $radius-card;
       border: 1px solid $border;
+      transition: border-color 0.25s ease;
 
       .p-card-title {
         font-size: 1.1rem;

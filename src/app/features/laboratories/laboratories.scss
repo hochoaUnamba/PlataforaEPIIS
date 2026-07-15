@@ -39,6 +39,13 @@
 
     .equipment-badge {
       border: 1px solid $border;
+      transition: background 0.2s ease, border-color 0.2s ease;
+      cursor: default;
+
+      &:hover {
+        background: $primary-50 !important;
+        border-color: $primary-light;
+      }
     }
   }
 }

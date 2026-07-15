@@ -1,12 +1,27 @@
 <div class="events-page max-w-7xl mx-auto px-6 lg:px-8 pt-6 md:pt-8">
 
+  <p-toast></p-toast>
+
   <div class="section-header" appScrollAnimation>
     <span class="section-badge">Eventos</span>
     <h1 class="section-title">Próximos Eventos</h1>
     <p class="section-subtitle">Seminarios, congresos, talleres y actividades académicas programadas por EPIIS.</p>
   </div>
 
+  @if (loading()) {
+    <div class="loading-spinner">
+      <i class="pi pi-spin pi-spinner text-3xl text-blue-500"></i>
+      <p class="text-gray-500 mt-2">Cargando eventos...</p>
+    </div>
+  }
+
   <div class="events-grid" appScrollAnimation>
+    @if (eventos().length === 0 && !loading()) {
+      <div class="empty-state">
+        <i class="pi pi-calendar text-4xl text-gray-300 mb-3"></i>
+        <p class="text-gray-500 font-medium">No hay eventos programados próximamente.</p>
+      </div>
+    }
     @for (ev of eventos(); track ev.titulo) {
       <div class="event-card card bg-white border-round shadow-1 border-1 border-200 overflow-hidden">
         <div class="event-header">
@@ -22,7 +37,7 @@
           <p class="event-desc">{{ ev.descripcion }}</p>
         </div>
         <div class="event-footer">
-          <p-button label="Más información" icon="pi pi-arrow-right" [text]="true" size="small"></p-button>
+          <p-button label="Más información" icon="pi pi-arrow-right" [text]="true" size="small" (click)="masInformacion(ev)"></p-button>
         </div>
       </div>
     }

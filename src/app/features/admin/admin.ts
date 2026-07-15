@@ -1,6 +1,7 @@
 import { Component, signal, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { ToastModule } from 'primeng/toast';
@@ -11,7 +12,7 @@ import { AuthService } from '../../core/services/auth.service';
 @Component({
   selector: 'app-admin',
   standalone: true,
-  imports: [CommonModule, FormsModule, InputTextModule, ButtonModule, ToastModule],
+  imports: [CommonModule, FormsModule, RouterModule, InputTextModule, ButtonModule, ToastModule],
   providers: [MessageService],
   templateUrl: './admin.html',
   styleUrl: './admin.scss'
@@ -22,6 +23,7 @@ export class AdminComponent {
   private messageService = inject(MessageService);
 
   isLoggedIn = this.authService.isLoggedIn();
+  loggingIn = signal(false);
   username = '';
   password = '';
 
@@ -31,6 +33,7 @@ export class AdminComponent {
 
   doLogin() {
     if (!this.username || !this.password) return;
+    this.loggingIn.set(true);
     const success = this.authService.login(this.username, this.password);
     if (success) {
       this.messageService.add({ severity: 'success', summary: 'Bienvenido', detail: 'Inicio de sesión exitoso.', life: 3000 });
@@ -39,6 +42,7 @@ export class AdminComponent {
     }
     this.username = '';
     this.password = '';
+    this.loggingIn.set(false);
   }
 
   doLogout() {
